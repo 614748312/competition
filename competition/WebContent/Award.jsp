@@ -29,6 +29,9 @@
 	                    </a></div>
 	                	<div><a href="javascript:void(0);" class="thumbnail">
 	                      <img src="img/58f827499f333_1024.png" alt="">
+	                    </a></div>	
+	                    <div><a href="javascript:void(0);" class="thumbnail">
+	                      <img src="img/58f827499f333_1024.png" alt="">
 	                    </a></div>				
 		 		
 		 </div>
