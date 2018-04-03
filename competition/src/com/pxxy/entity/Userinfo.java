@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,6 +18,17 @@ public class Userinfo {
 	private String own_products;
 	private String own_prizes;
 	private String own_tel;
+	private String own_studentname;
+	@ManyToOne
+	@JoinColumn(name="tel",referencedColumnName="tel")
+	private User user;
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 	public String getOwn_matchs() {
 		return own_matchs;
@@ -61,6 +74,14 @@ public class Userinfo {
 	public String toString() {
 		return "Userinfo [own_id=" + own_id + ", own_matchs=" + own_matchs + ", own_products=" + own_products
 				+ ", own_prizes=" + own_prizes + ", own_tel=" + own_tel + "]";
+	}
+
+	public String getOwn_studentname() {
+		return own_studentname;
+	}
+
+	public void setOwn_studentname(String own_studentname) {
+		this.own_studentname = own_studentname;
 	}
 
 }

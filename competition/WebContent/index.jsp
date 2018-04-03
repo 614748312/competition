@@ -47,16 +47,16 @@
 				<span><img src="img/pin.png"> <img src="img/menu2.png"
 					width="100"> </span> <span class="more"><a
 					href="contest.jsp">更多</a></span>
-					<s:action name="findFourNews" executeResult="false" namespace="/"></s:action>
+					<s:action name="findFourMatch" executeResult="false" namespace="/"></s:action>
 			 <div class="row">
-			   <s:iterator value="#request.list" id="list">
+			   <s:iterator value="#request.list1" id="list1">
 				<div class="col-sm-6 col-md-3">
 					<div class="thumbnail">
 						<a href="javascript:void(0);" class="pic" >
-	                      <img src="<s:property value='#list.news_pic'/>" alt="" width="220" height="200">
+	                      <img src="<s:property value='#list1.match_picture'/>" alt="" width="220" height="200">
 	                    </a>
 						<div class="caption">
-							<h4 style="text-align:center"><s:property value="#list.news_title" /></h4>
+							<h4 style="text-align:center"><s:property value="#list1.match_name" /></h4>
 							<p>
 								<a href="works.jsp" class="btn btn-primary " role="button">
 									查看详情 </a>
@@ -80,12 +80,12 @@
 					<div class="row">
 						<div class="col-xs-12">
 							<ul class="demo1">
-							<s:iterator value="#request.list" id="list1">
+							<s:iterator value="#request.list1" id="list1">
 								<li class="news-item">
 									<table cellpadding="4">
 										<tr>
-											<td> <img src="<s:property value='#list.news_pic' />" alt="" width="60" class="img-circle"></td>
-											<th><s:property value="#list.news_title" /><a
+											<td> <img src="<s:property value='#list1.news_pic' />" alt="" width="60" class="img-circle"></td>
+											<th><s:property value="#list1.news_title" /><a
 												href="news.jsp">点击查看</a></th>
 										</tr>
 									</table>

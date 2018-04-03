@@ -72,7 +72,7 @@ public class NewsAction extends ActionSupport implements ModelDriven<News> {
 		try{
 			HttpServletRequest request = ServletActionContext.getRequest();
 			list = newsService.findFourNews();
-		    request.setAttribute("list", list);	
+		    request.setAttribute("list1", list);	
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -123,14 +123,13 @@ public class NewsAction extends ActionSupport implements ModelDriven<News> {
 		}
 		return "success";
 	}
-	@Action(value = "updateNews", results = { @Result(name = "success", location = "/success.jsp") })
-	public String updateNews() {
+	@Action(value = "/admin/updateNews")
+	public void updateNews(){
 		try {
 			newsService.updateNews(news);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "success";
 	}
 	@Action(value = "/admin/addNews")
 	public void addNews() {

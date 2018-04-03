@@ -17,6 +17,18 @@ public class Sign_up {
 	private String student_tel;
 	@ManyToOne
 	@JoinColumn(name="match_id",referencedColumnName="match_id")
+	private Match match;
+	@ManyToOne
+	@JoinColumn(name="tel",referencedColumnName="tel")
+	private User user;
+	public Match getMatch() {
+		return match;
+	}
+
+	public void setMatch(Match match) {
+		this.match = match;
+	}
+
 	public String getStudent_name() {
 		return student_name;
 	}

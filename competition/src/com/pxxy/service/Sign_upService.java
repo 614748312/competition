@@ -1,5 +1,7 @@
 package com.pxxy.service;
 
+import java.util.List;
+
 import com.pxxy.entity.PageBean;
 import com.pxxy.entity.Sign_up;
 
@@ -14,5 +16,7 @@ public interface Sign_upService {
 	void delSign_up(Sign_up sign_up);
 
 	void addSign_up(Sign_up sign_up);
+
+	List<Sign_up> findSignUpByTel(int tel);
 
 }

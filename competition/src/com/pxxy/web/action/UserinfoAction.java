@@ -35,6 +35,7 @@ private List<Userinfo> list = null;
 private PageBean<Userinfo> pb;  
 private int currentPage=1; 
 private int pageSize = 9;
+private int tel;
 	public Userinfo getUserinfo() {
 	return userinfo;
 }
@@ -57,12 +58,12 @@ public String findAllUserinfo() {
 	return "success";
 
 }
-/*@Action(value = "/admin/findAllUserinfoForShow")
-public String findAllUserinfoForShow() {
+@Action(value = "findUserinfoByTel")
+public String findUserinfoByTel() {
 	try {
-		List<Userinfo> list = userinfoService.findAllUserinfo();
-		HttpServletResponse response = ServletActionContext.getResponse(); // 响应对象
-		response.setContentType("text/html;charset=UTF-8"); // 告知浏览器使用UTF-8编码
+		List<Userinfo> list = userinfoService.findUserinfoByTel(tel);
+		HttpServletResponse response = ServletActionContext.getResponse(); // 鍝嶅簲瀵硅薄
+		response.setContentType("text/html;charset=UTF-8"); // 鍛婄煡娴忚鍣ㄤ娇鐢║TF-8缂栫爜
 		PrintWriter out = response.getWriter();
 		String json = JSONArray.fromObject(list).toString();
 		System.out.println(json);
@@ -72,7 +73,7 @@ public String findAllUserinfoForShow() {
 	}
 	return null;
 
-}*/
+}
 @Action(value = "/admin/delUserinfo", results = { @Result(name = "success", location="/admin/findAllUserinfo",type = "redirect") })
 public String delUserinfo() {
 	try {
@@ -84,28 +85,27 @@ public String delUserinfo() {
 }
 
 
-@Action(value = "admin/editUserinfo", results = { @Result(name = "success", location = "/admin/winner/edit.jsp") })
+@Action(value = "/admin/editUserinfo", results = { @Result(name = "success", location = "/admin/winner/edit.jsp") })
 public String editUserinfo() {
 	try {
 		userinfo = userinfoService.findUserinfoById(userinfo.getOwn_id());
 		this.setUserinfo(userinfo);
 		// ActionContext.getContext().getValueStack().push(category);
 		HttpServletResponse response = ServletActionContext.getResponse();
-		response.setContentType("text/html;charset=UTF-8");// 告知浏览器使用什么编码解析文本
+		response.setContentType("text/html;charset=UTF-8");// 鍛婄煡娴忚鍣ㄤ娇鐢ㄤ粈涔堢紪鐮佽В鏋愭枃鏈�
 	} catch (Exception e) {
 		e.printStackTrace();
 	}
 	return "success";
 }
 
-@Action(value = "updateUserinfo", results = { @Result(name = "success", location = "/success.jsp") })
-public String updateUserinfo() {
+@Action(value = "/admin/updateUserinfo")
+public void updateUserinfo() {
 	try {
 		userinfoService.updateUserinfo(userinfo);
 	} catch (Exception e) {
 		e.printStackTrace();
 	}
-	return "success";
 }
 
 @Action(value = "/admin/addUserinfo")

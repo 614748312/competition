@@ -32,11 +32,13 @@
 			        </a>
 			        <a data-toggle="modal" onclick="openRegisterModal();">
 			        <img src="img/nav5.png" width="60" class="menu5" id="aa">
+			       
 			        </a>
 			        </s:if>
 			        <s:else>
 			        <img  src="img/2.png" width="60" class="menu4" id="aaa">
 			        <input  type="text" value="${session.tel} " id="ab" style="width:120px;" readonly="readonly">
+			        <a href="logout.action"><img  src="img/nav7.png" width="60" class="logout"></a>
 			        </s:else>
 			 </div>
 			
@@ -51,7 +53,7 @@
                              <div class="content">                       
                                 <div class="form loginBox">
                                 	<div class="login-header" align="center" > <h1>登陆</h1></div>
-                                    <form method="post" action="log" accept-charset="UTF-8">
+                                    <form method="post" action="log" accept-charset="UTF-8" onsubmit="return check()" name="logform">
                                     <input id="username" class="form-control" type="text" placeholder="请输入账号" name="tel">
                                     <input id="password" class="form-control" type="password" placeholder="请输入密码" name="password">
                                     <input class="btn btn-default btn-login" type="submit" value="登陆">
@@ -68,10 +70,10 @@
                              <div class="form">
                              	<div class="login-header" align="center" > <h1>注册</h1></div>
                                 <form method="post" action="reg" name="myForm" onsubmit="return validateForm()">
-                                <input id="username" class="form-control" type="text" placeholder="账号*请输入6到11位数字*" name="tel">
-                                <input id="password" class="form-control" type="password" placeholder="密码 *以字母开头，长度在6~18之间*" name="password">
+                                <input id="username" class="form-control" type="text" placeholder="账号  *请输入6到10数字*" name="tel">
+                                <input id="password" class="form-control" type="password" placeholder="密码  *6到10位数字以及字母组合密码*" name="password">
                                 <input id="password_confirmation" class="form-control" type="password" placeholder="重复密码" name="password_confirmation">
-                                <input class="btn btn-default btn-register " type="submit" value="注册">
+                                <input class="btn btn-default btn-register " type="submit" value="注册" >
                                 </form>
                                 </div>
                                 
@@ -98,6 +100,9 @@
 		      </div>
 		  </div>
     </div>
+        <script>
+        var log='${session.log}';
+        </script>
         <script type="text/javascript" src="<%=basePath%>/js/jquery.min.js" ></script>
 		<script type="text/javascript" src="<%=basePath%>/js/bootstrap.js" ></script>
 		<script type="text/javascript" src="<%=basePath%>/js/login-register.js" ></script>

@@ -68,5 +68,4 @@ public class ProductsServiceimpl implements ProductsService{
 		pb.setTotalPage(totalPage);
 		return pb;
 	}
-
 }

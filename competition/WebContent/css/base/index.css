@@ -72,7 +72,7 @@ html,body{
 	
 }
 .name{
-	position: relative;
+   position: relative;
    left:50px;
    top:-35px;
 }
@@ -94,6 +94,12 @@ html,body{
 	color: #fff;
 	left:50%;
 	top:15%;
+}
+.logout{
+	 position: relative;
+	 left:150%;
+	 top:-32px;
+	 
 }
 #aaa{
 	border-radius: 30px;
@@ -193,7 +199,7 @@ width: 100%;
 {
     padding:4px 8px;
     margin:0px;
-    border-bottom:1px dotted #555; 
+    margin-top:20px;
 }
 .work_center{
 	width:100%;
@@ -346,7 +352,6 @@ label.w3layouts {
 .contest_center {
 	height:800px;
 	width:100%;
-
 
 }
 .myinfo_center1{

@@ -20,6 +20,7 @@ public class Products {
 	private String pic_path;
 	@ManyToOne
 	@JoinColumn(name="match_id",referencedColumnName="match_id")
+	private Match match;
 	public String getProducts_text() {
 		return products_text;
 	}
@@ -35,10 +36,6 @@ public class Products {
 	public void setPic_path(String pic_path) {
 		this.pic_path = pic_path;
 	}
-
-	@ManyToOne
-	@JoinColumn(name = "match_id", referencedColumnName = "match_id")
-	private Match match;
 	public int getProducts_id() {
 		return products_id;
 	}
@@ -70,13 +67,7 @@ public class Products {
 	public void setMatch(Match match) {
 		this.match = match;
 	}
-
-	@Override
-	public String toString() {
-		return "Products [products_id=" + products_id + ", products_name=" + products_name + ", products_author="
-				+ products_author + ", products_text=" + products_text + ", pic_path=" + pic_path + ", match=" + match
-				+ "]";
-	}
+	
 
 	
 	}

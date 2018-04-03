@@ -4,9 +4,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
 import java.util.List;
-
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
@@ -18,9 +17,9 @@ import org.springframework.stereotype.Controller;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+import org.springframework.stereotype.Controller;
 import com.pxxy.entity.Match;
 import com.pxxy.entity.PageBean;
-import com.pxxy.entity.Products;
 import com.pxxy.service.MatchService;
 import com.pxxy.service.ProductsService;
 
@@ -49,23 +48,33 @@ public class MatchAction extends ActionSupport implements ModelDriven<Match> {
 		return "success";
 
 	}
-
-//	@Action(value = "findAllMatchForShow")
-//	public String findAllMatchForShow() {
-//		try {
-//			List<Match> list = matchService.findAllMatch();
-//			HttpServletResponse response = ServletActionContext.getResponse(); // 响应对象
-//			response.setContentType("text/html;charset=UTF-8"); // 告知浏览器使用UTF-8编码
-//			PrintWriter out = response.getWriter();
-//			String json = JSONArray.fromObject(list).toString();
-//			System.out.println(json);
-//			out.write(json);
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//		return null;
-//
-//	}
+	@Action(value = "findFourMatch", results = { @Result(name = "success", location = "/index.jsp") })
+	public String findFourMatch(){
+		try{
+			HttpServletRequest request = ServletActionContext.getRequest();
+			list = matchService.findFourMatch();
+		    request.setAttribute("list1", list);	
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "success";
+		
+	}
+	@Action(value = "/admin/findAllMatchForDrop")
+	public String findAllMatchForDrop() {
+		try {
+			List<Match> list =matchService.findAllMatchForDrop();
+			HttpServletResponse response = ServletActionContext.getResponse(); // 响应对象
+			response.setContentType("text/html;charset=UTF-8"); // 告知浏览器使用UTF-8编码
+			PrintWriter out = response.getWriter();
+			String json = JSONArray.fromObject(list).toString();
+			System.out.println(json);
+			out.write(json);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 	@Action(value = "/admin/delMatch", results = { @Result(name = "success",location="/admin/findAllMatch",type = "redirect") })
 	public String delMatch() {
@@ -76,7 +85,6 @@ public class MatchAction extends ActionSupport implements ModelDriven<Match> {
 		}
 		return "success";
 	}
-	
 
 	@Action(value = "/admin/editMatch", results = { @Result(name = "success", location = "/admin/matchs/edit.jsp") })
 	public String editMatch() {

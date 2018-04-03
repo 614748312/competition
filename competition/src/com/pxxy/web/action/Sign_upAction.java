@@ -4,9 +4,10 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
 import java.util.List;
-
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
@@ -36,6 +37,7 @@ public class Sign_upAction extends ActionSupport implements ModelDriven<Sign_up>
 	private PageBean<Sign_up> pb;
 	private int currentPage=1; 
 	private int pageSize = 9;
+	private int tel;
 	public PageBean<Sign_up> getPb() {
 		return pb;
 	}
@@ -82,10 +84,10 @@ public class Sign_upAction extends ActionSupport implements ModelDriven<Sign_up>
 		return "success";
 	}
 
-	/*@Action(value = "/admin/findAllSign_upForShow")
-	public String findAllSign_upForShow() {
+	@Action(value = "findSignUpByTel")
+	public String findSignUpByTel() {
 		try {
-			List<Sign_up> list = sign_upService.findAllSign_up();
+			List<Sign_up> list = sign_upService.findSignUpByTel(tel);
 			HttpServletResponse response = ServletActionContext.getResponse(); // 响应对象
 			response.setContentType("text/html;charset=UTF-8"); // 告知浏览器使用UTF-8编码
 			PrintWriter out = response.getWriter();
@@ -95,10 +97,8 @@ public class Sign_upAction extends ActionSupport implements ModelDriven<Sign_up>
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 		return null;
-
-	}*/
+	}
     @Action(value="addSign_up")
     public void addSign_up(){
     	try {

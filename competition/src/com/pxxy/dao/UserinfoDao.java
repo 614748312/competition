@@ -20,4 +20,6 @@ public interface UserinfoDao {
 
 	List<Userinfo> findAllUserinfo(int currentPage, int pageSize);
 
+	List<Userinfo> findUserinfoByTel(int tel);
+
 }

@@ -6,11 +6,13 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Order;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.pxxy.dao.MatchDao;
 import com.pxxy.entity.Match;
+import com.pxxy.entity.News;
 import com.pxxy.entity.User;
 
 @Repository(value = "matchDao")
@@ -25,7 +27,8 @@ public class MatchDaoimpl implements MatchDao {
 	
 	@Override
 	public void delMatch(Match match) {
-		hibernateTemplate.delete(match);
+		String sql="delect from Products where Match_id=match_id;delect from Match where Match_id=match_id";
+		hibernateTemplate.delete(sql);
 	}
 	@Override
 	public void updateMatch(Match match) {
@@ -49,4 +52,21 @@ public class MatchDaoimpl implements MatchDao {
 		return list.get(0).intValue();
 	}
 
-}
+
+	@Override
+	public List<Match> findAllMatchForDrop() {
+		// TODO Auto-generated method stub
+		return (List<Match>) hibernateTemplate.find("from Match");
+	}
+
+
+	@Override
+	public List<Match> findFourMatch() {
+			// TODO Auto-generated method stub
+			DetachedCriteria criteria = DetachedCriteria.forClass(Match.class);
+			criteria.addOrder(Order.desc("match_id"));
+			return (List<Match>) hibernateTemplate.findByCriteria(criteria , 0, 4);
+		}
+	}
+
+

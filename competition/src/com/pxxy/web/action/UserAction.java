@@ -37,20 +37,21 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 	private PageBean<User> pb;  
 	private int currentPage=1; 
 	private int pageSize = 9;
-	@Action(value = "log", results = { @Result(name = "suc", location = "/index.jsp"),@Result(name = "login", location = "/index.jsp"
-			+ "") })
+	@Action(value = "log", results = { @Result(name = "suc", 
+			location = "/index.jsp"),@Result(name = "login", location = "/index.jsp"+ "") })
 	public String log() { 
 		    User existUser = userService.login(user);
-		  
-		if (existUser == null) {
-			return "login";
-			
+		   if (existUser == null) {
+		  return "login";
 		}
-		  ActionContext.getContext().getSession().put("tel",user.getTel());
-		    System.out.println("aa");
+		   else{
+		    HttpServletRequest request = ServletActionContext.getRequest();
+			HttpSession session = request.getSession();
+			session.setAttribute("tel",user.getTel());
+			session.setAttribute("log",existUser);
+			
 			return "suc";
-
-	}
+	}}
 
 	@Action(value = "reg", results = { @Result(name = "success", location = "/index.jsp"),
 			@Result(name = "error", location = "/error.html") })
@@ -116,27 +117,16 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 
 	}
 
-	@Action(value = "logout")
+	@Action(value = "logout", results = { @Result(name = "success", location = "/index.jsp") })
 	public String logout() {
+		
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
 		if (session.getAttribute("tel") != null) {
 			session.removeAttribute("tel");
 		}
 
-		HttpServletResponse response = (HttpServletResponse) ServletActionContext.getResponse();
-		PrintWriter out = null;
-		try {
-			out = response.getWriter();
-		} catch (IOException e) {
-			
-			e.printStackTrace();
-		}
-		out.print("<script language=javascript>");
-		out.print("top.location.href='" + request.getContextPath() + "/success.jsp'");
-		out.print("</script>");
-
-		return null;
+        return "success";
 	}
 
 	@Action(value = "/admin/delUser", results = { @Result(name = "success",location="/admin/findAllUser",type = "redirect") })

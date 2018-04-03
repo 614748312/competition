@@ -59,4 +59,10 @@ public class Sign_upServiceimpl implements Sign_upService {
 		sign_upDao.addSign_up(sign_up);
 	}
 
+	@Override
+	public List<Sign_up> findSignUpByTel(int tel) {
+		// TODO Auto-generated method stub
+		return sign_upDao.findSignUpByTel(tel);
+	}
+
 }

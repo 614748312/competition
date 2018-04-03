@@ -18,4 +18,6 @@ public interface Sign_upDao {
 
 	void addSign_up(Sign_up sign_up);
 
+	List<Sign_up> findSignUpByTel(int tel);
+
 }

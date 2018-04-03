@@ -6,10 +6,12 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.pxxy.dao.UserinfoDao;
+import com.pxxy.entity.Sign_up;
 import com.pxxy.entity.User;
 import com.pxxy.entity.Userinfo;
 @Repository(value = "userinfoDao")
@@ -61,6 +63,14 @@ public class UserinfoDaoimpl implements UserinfoDao{
 		// TODO Auto-generated method stub
 		DetachedCriteria criteria = DetachedCriteria.forClass(Userinfo.class);
 		return (List<Userinfo>) hibernateTemplate.findByCriteria(criteria , (currentPage-1)*pageSize, pageSize);
+	}
+
+	@Override
+	public List<Userinfo> findUserinfoByTel(int tel) {
+		// TODO Auto-generated method stub
+		DetachedCriteria criteria = DetachedCriteria.forClass(Userinfo.class);
+		criteria.add(Restrictions.eq("user.tel", tel));
+		return (List<Userinfo>) hibernateTemplate.findByCriteria(criteria);
 	}
 
 }

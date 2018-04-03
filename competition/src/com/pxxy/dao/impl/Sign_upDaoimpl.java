@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
@@ -56,6 +57,14 @@ public class Sign_upDaoimpl implements Sign_upDao {
 	public void addSign_up(Sign_up sign_up) {
 		// TODO Auto-generated method stub
 		hibernateTemplate.save(sign_up);
+	}
+
+	@Override
+	public List<Sign_up> findSignUpByTel(int tel) {
+		// TODO Auto-generated method stub
+		DetachedCriteria criteria = DetachedCriteria.forClass(Sign_up.class);
+		criteria.add(Restrictions.eq("user.tel", tel));
+		return (List<Sign_up>) hibernateTemplate.findByCriteria(criteria);
 	}
 
 }

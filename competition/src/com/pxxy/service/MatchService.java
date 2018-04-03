@@ -19,4 +19,10 @@ public interface MatchService {
 
 	public PageBean<Match> findAllMatch(int currentPage, int pageSize);
 
+
+	public List<Match> findAllMatchForDrop();
+
+
+	public List<Match> findFourMatch();
+
 }

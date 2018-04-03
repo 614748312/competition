@@ -63,4 +63,10 @@ public class UserinfoServiceimpl implements UserinfoService {
 		pb.setTotalPage(totalPage);
 		return pb;
 	}
+
+	@Override
+	public List<Userinfo> findUserinfoByTel(int tel) {
+		// TODO Auto-generated method stub
+		return userinfoDao.findUserinfoByTel(tel);
+	}
 }

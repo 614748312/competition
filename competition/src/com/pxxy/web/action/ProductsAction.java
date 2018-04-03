@@ -74,8 +74,8 @@ public class ProductsAction extends ActionSupport implements ModelDriven<Product
 	public String findAllProductsForShow() {
 		try {
 			List<Products> list = productsService.findAllProducts();
-			HttpServletResponse response = ServletActionContext.getResponse(); // 响应对象
-			response.setContentType("text/html;charset=UTF-8"); // 告知浏览器使用UTF-8编码
+			HttpServletResponse response = ServletActionContext.getResponse(); // 鍝嶅簲瀵硅薄
+			response.setContentType("text/html;charset=UTF-8"); // 鍛婄煡娴忚鍣ㄤ娇鐢║TF-8缂栫爜
 			PrintWriter out = response.getWriter();
 			String json = JSONArray.fromObject(list).toString();
 			System.out.println(json);
@@ -92,7 +92,7 @@ public class ProductsAction extends ActionSupport implements ModelDriven<Product
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
+	}	
 	@Action(value = "/admin/editProducts", results = { @Result(name = "success", location = "/admin/works/edit.jsp") })
 	public String editProducts() {
 		try {
@@ -100,20 +100,19 @@ public class ProductsAction extends ActionSupport implements ModelDriven<Product
 			this.setProducts(products);
 			// ActionContext.getContext().getValueStack().push(category);
 			HttpServletResponse response = ServletActionContext.getResponse();
-			response.setContentType("text/html;charset=UTF-8");// 告知浏览器使用什么编码解析文本
+			response.setContentType("text/html;charset=UTF-8");// 鍛婄煡娴忚鍣ㄤ娇鐢ㄤ粈涔堢紪鐮佽В鏋愭枃鏈�
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return "success";
 	}
-	@Action(value = "updateProducts", results = { @Result(name = "success", location = "/success.jsp") })
-	public String updateProducts() {
+	@Action(value = "/admin/updateProducts")
+	public void updateProducts() {
 		try {
 			productsService.updateProducts(products);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "success";
 	}
 	@Action(value = "/admin/addProducts")
 	public void addProducts() {
@@ -123,7 +122,7 @@ public class ProductsAction extends ActionSupport implements ModelDriven<Product
 			e.printStackTrace();
 		}
 	}
-	@Action(value = "findAllProductsByMatch_id", results = { @Result(name = "success", location = "/success.jsp") })
+	/*@Action(value = "findAllProductsByMatch_id", results = { @Result(name = "success", location = "/success.jsp") })
 	public String findAllProductsByMatch_id() {
 		try {
 			list = productsService.findAllProductsByMatch_id(products.getMatch().getMatch_id());
@@ -133,7 +132,7 @@ public class ProductsAction extends ActionSupport implements ModelDriven<Product
 			e.printStackTrace();
 		}
 		return "success";
-	}
+	}*/
 	
 	@Override
 	public Products getModel() {

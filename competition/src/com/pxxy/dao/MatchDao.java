@@ -18,4 +18,8 @@ public interface MatchDao {
 
 	int getCount();
 
+	public List<Match> findAllMatchForDrop();
+
+	public List<Match> findFourMatch();
+
 }

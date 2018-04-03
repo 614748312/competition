@@ -19,4 +19,6 @@ public interface UserinfoService{
 
 	List<Userinfo> findAllUserinfoByTel(int tel);
 
+	List<Userinfo> findUserinfoByTel(int tel);
+
 }

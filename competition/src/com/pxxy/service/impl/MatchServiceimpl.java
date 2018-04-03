@@ -60,6 +60,16 @@ public class MatchServiceimpl implements MatchService {
 		pb.setTotalPage(totalPage);
 		return pb;
 	}
+	@Override
+	public List<Match> findAllMatchForDrop() {
+		// TODO Auto-generated method stub
+		return matchDao.findAllMatchForDrop();
+	}
+	@Override
+	public List<Match> findFourMatch() {
+		// TODO Auto-generated method stub
+		return matchDao.findFourMatch();
+	}
 
 	}
 
