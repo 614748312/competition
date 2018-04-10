@@ -33,33 +33,13 @@
       <div class="nav-tabs pa">
         <a href="javascript:;" class="baseinfo fl active" id="a" onclick="a()">基本信息</a>
         <a href="javascript:;" class="countinfo fl" id="a1" onclick="a1()">报名信息</a>
-        <a href="javascript:;" class="countinfo fl" id="a2" onclick="a2()">获奖情况</a>
+
         
       </div>
    <div class="contentBox">
       <div class="formBox">
           <div id="setting-profile" class="setting-wrap setting-profile">
-            <div class="wlfg-wrap clearfix ">
-              <label class="label-name" for="job">头像：</label>
-              <div class="rlf-group">
-                <img class="fl avator-img" id="js-portrait" src="./img/6.png" data-portrait="58492fe600012e8e01800180" width="180" height="180">
-                <div class="fl ml20 pr">
-                    <div id="avator-btns" class="avator-btn-inner">
-                    <div class="avator-btn-wrap">
-                      <form target="uploadtarget" action="postpic" method="post" enctype="multipart/form-data">
-                        <a href="javascript:void(0)" hidefocus="true" class="avator-btn-fake">上传头像</a>
-                        <input class="hide" type="file" title="上传头像" name="fileField" id="upload" accept="image/*">
-                        <input class="hide" type="hidden" name="type" value="1">
-                      </form>
-                      <iframe src="about:blank" id="uploadtarget" name="uploadtarget" frameborder="0" style="display:none;"></iframe>
-                    </div>
-                  </div>
-                </div>
-                <div class="cb"></div>
-                <p class="rlf-tip-wrap errorHint color-red" ></p>
-              </div>
-            </div>
-
+          
             <form id="profile" >
               <div class="wlfg-wrap clearfix">
                 <label class="label-name" for="nick" >昵称：</label>
@@ -88,6 +68,14 @@
                   </div>
                 </div>
               </div>
+               <div class="wlfg-wrap clearfix">
+                <label class="label-name" for="aboutme">获奖情况：</label>
+                <div class="rlf-group">
+                  <div class="pr">
+                    <textarea name="aboutme"  id="aboutme"  rows="5" class="noresize js-sign moco-form-control"></textarea>
+                  </div>
+                </div>
+              </div>
 
               <div class="wlfg-wrap clearfix">
                 <label class="label-name" for="profile-submit"></label>
@@ -95,7 +83,10 @@
                   <span id="profile-submit"  hidefocus="true"  aria-role="button" class="rlf-btn-green btn-block profile-btn">保存</span>
                 </div>
               </div>
+              
+              
             </form>
+            
 
           </div>
         </div>
@@ -149,7 +140,7 @@
        
          <form id="profile" >
               <div class="wlfg-wrap clearfix">
-                <label class="label-name" for="nick" >比赛ID：</label>
+                <label class="label-name" for="nick" >项目名称：</label>
                 <div class="rlf-group">
                   <input type="text" name="nickname" id="nick"  autocomplete="off"  data-validate="require-nick"  class="moco-form-control" value="默认" placeholder="请输入昵称."/>
                   <p class="rlf-tip-wrap errorHint color-red" ></p>
@@ -157,18 +148,7 @@
               </div>
        </form>
        </div>
-      
-      <div class="formBox2" style="display:none;">
-         <form id="profile" >
-              <div class="wlfg-wrap clearfix">
-                <label class="label-name" for="nick" >姓名：</label>
-                <div class="rlf-group">
-                  <input type="text" name="nickname" id="nick"  class="moco-form-control" value="默认" placeholder="请输入昵称."/>
-                  <p class="rlf-tip-wrap errorHint color-red" ></p>
-                </div>
-              </div>
-       </form>
-      </div>
+   
    </div>
   </div>
 </div>

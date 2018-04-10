@@ -23,11 +23,25 @@ function a(){
 		 $("#a2").removeClass("active");
 		 
 }
-function a2(){
-		 $(".formBox").css("display","none");
-		 $(".formBox2").css("display","");
-		 $(".formBox1").css("display","none");
-		 $("#a2").addClass("active");
-		 $("#a").removeClass("active");
-		 $("#a1").removeClass("active");
-}
+
+$(function(){
+
+	$(".section ul li .rsp").hide();
+
+	$(".section	 ul li").hover(function(){
+
+		$(this).find(".rsp").stop().fadeTo(500,0.5)
+
+		$(this).find(".text").stop().animate({left:'0'}, {duration: 500})
+
+	},function(){
+
+		$(this).find(".rsp").stop().fadeTo(500,0)
+
+		$(this).find(".text").stop().animate({left:'318'}, {duration: "fast"})
+
+		$(this).find(".text").animate({left:'-318'}, {duration: 0})
+
+	});
+
+});

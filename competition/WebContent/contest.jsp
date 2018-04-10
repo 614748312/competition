@@ -9,7 +9,7 @@ request.setAttribute("path", basePath);  %>
 	<head>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="<%=basePath%>/css/base/index.css" />
-		<link rel="stylesheet" href="<%=basePath%>/css/base/bootstrap.css" />
+		<link rel="stylesheet" href="<%=basePath%>/css/base/crowd.css" />
 		<title>赛事 新闻</title>
 	</head>
 	<body>
@@ -18,7 +18,11 @@ request.setAttribute("path", basePath);  %>
          
 		<div class="content-agileits">
 			<h1 class="title">报名信息</h1>
-			<div class="left1">
+			
+			<div class="right1">
+			
+            </div>
+		<div class="left1">
 				<form action="#" method="post" data-toggle="validator">
 					<div class="form-group">
 						<label for="firstname" class="control-label">姓名:</label>
@@ -37,7 +41,7 @@ request.setAttribute("path", basePath);  %>
 						<input type="text" class="form-control" id="tel" placeholder="电话号码"  required>
 					</div>
 					<div class="form-group">
-						<label for="inputPassword" class="control-label">比赛名称:</label>
+						<label for="inputPassword" class="control-label">项目名称:</label>
 						<input type="text" class="form-control" id="matchid" placeholder="比赛id" required>
 					</div>
 					<div class="form-group w3ls-opt">
@@ -54,8 +58,6 @@ request.setAttribute("path", basePath);  %>
 					</div>
 				</form>
 			</div>
-			<div class="right1"></div>
-		
 		</div>
      
      </div>

@@ -33,6 +33,12 @@
 	    <div class="carousel-caption">
 	    </div>
 	  </div>
+	  
+	  <div class="item">
+	    <img src="img/背景5.png">
+	    <div class="carousel-caption">
+	    </div>
+	  </div>
 	</div>
 	  <!-- Controls -->
 	  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">

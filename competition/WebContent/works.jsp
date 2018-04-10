@@ -10,7 +10,6 @@
 		<meta charset="UTF-8">
 	
 		<title>获奖动态</title>
-		<link rel="stylesheet" href="<%=basePath%>/css/base/my.css" />
 		<link rel="stylesheet" href="<%=basePath%>/css/base/index.css" />
 		<link rel="stylesheet" href="<%=basePath%>/css/base/bootstrap.css" />
 	  
@@ -20,103 +19,72 @@
 	    <div class="myinfo_center1">
 	      <div class="myinfo_left">
 	          <h2>网站作品展示</h2>
-				<div class="row">
-				    <div class="col-sm-6 col-md-3">
-				        <a href="#" class="thumbnail thumbnail1">
-				            <img src="img/58f827499f333_1024.png""
-				                 alt="通用的占位符缩略图">
-				        </a>
-				    </div>
-				    <div class="col-sm-6 col-md-3">
-				        <a href="#" class="thumbnail thumbnail1">
-				            <img src="img/58f827499f333_1024.png"
-				                 alt="通用的占位符缩略图">
-				        </a>
-				    </div>
-				    <div class="col-sm-6 col-md-3">
-				        <a href="#" class="thumbnail thumbnail1">
-				            <img src="img/58f827499f333_1024.png"
-				                 alt="通用的占位符缩略图">
-				        </a>
-				    </div>
-				    <div class="col-sm-6 col-md-3">
-				        <a href="#" class="thumbnail thumbnail1">
-				            <img src="img/58f827499f333_1024.png"
-				                 alt="通用的占位符缩略图">
-				        </a>
-				    </div>
-				    <div class="col-sm-6 col-md-3">
-				        <a href="#" class="thumbnail thumbnail1">
-				            <img src="img/58f827499f333_1024.png""
-				                 alt="通用的占位符缩略图">
-				        </a>
-				    </div>
-				    <div class="col-sm-6 col-md-3">
-				        <a href="#" class="thumbnail thumbnail1">
-				            <img src="img/58f827499f333_1024.png"
-				                 alt="通用的占位符缩略图">
-				        </a>
-				    </div>
-				    <div class="col-sm-6 col-md-3">
-				        <a href="#" class="thumbnail thumbnail1">
-				            <img src="img/58f827499f333_1024.png"
-				                 alt="通用的占位符缩略图">
-				        </a>
-				    </div>
-				    <div class="col-sm-6 col-md-3">
-				        <a href="#" class="thumbnail thumbnail1">
-				            <img src="img/58f827499f333_1024.png"
-				                 alt="通用的占位符缩略图">
-				        </a>
-				    </div>
-				     <div class="col-sm-6 col-md-3">
-				        <a href="#" class="thumbnail thumbnail1">
-				            <img src="img/58f827499f333_1024.png""
-				                 alt="通用的占位符缩略图">
-				        </a>
-				    </div>
-				    <div class="col-sm-6 col-md-3">
-				        <a href="#" class="thumbnail thumbnail1">
-				            <img src="img/58f827499f333_1024.png"
-				                 alt="通用的占位符缩略图">
-				        </a>
-				    </div>
-				    <div class="col-sm-6 col-md-3">
-				        <a href="#" class="thumbnail thumbnail1">
-				            <img src="img/58f827499f333_1024.png"
-				                 alt="通用的占位符缩略图">
-				        </a>
-				    </div>
-				    <div class="col-sm-6 col-md-3">
-				        <a href="#" class="thumbnail thumbnail1">
-				            <img src="img/58f827499f333_1024.png"
-				                 alt="通用的占位符缩略图">
-				        </a>
-				    </div>
-				</div>
-			  <>          
-		 </div>
+				 <div class="row">
+						    <div class="col-sm-6 col-md-3">
+						         <div class="thumbnail">
+						             <img src="img/58f827499f333_1024.png" 
+						             alt="通用的占位符缩略图">
+						            <div class="caption">
+						              <a href="#"><h3>项目名</h3></a>
+						            </div>
+						         </div>
+						    </div>
+						     <div class="col-sm-6 col-md-3">
+						         <div class="thumbnail">
+						             <img src="img/58f827499f333_1024.png" 
+						             alt="通用的占位符缩略图">
+						            <div class="caption">
+						              <a href="#"><h3>项目名</h3></a>
+						            </div>
+						         </div>
+						    </div>
+						     <div class="col-sm-6 col-md-3">
+						         <div class="thumbnail">
+						             <img src="img/58f827499f333_1024.png" 
+						             alt="通用的占位符缩略图">
+						            <div class="caption">
+						              <a href="#"><h3>项目名</h3></a>
+						            </div>
+						         </div>
+						    </div>
+						     <div class="col-sm-6 col-md-3">
+						         <div class="thumbnail">
+						             <img src="img/58f827499f333_1024.png" 
+						             alt="通用的占位符缩略图">
+						            <div class="caption">
+						              <a href="#"><h3>项目名</h3></a>
+						            </div>
+						         </div>
+						    </div>
+						     
+			    </div>
+			    <a class="btn btn-primary btn-lg more">加载更多</a>
+	     </div>
 	      <div class="myinfo_right">
 	                    <h2>获奖作品推荐</h2>
-						<div><a href="javascript:void(0);" class="thumbnail">
-	                      <img src="img/58f827499f333_1024.png" alt="">
-	                    </a></div>
-	                	<div><a href="javascript:void(0);" class="thumbnail">
-	                      <img src="img/58f827499f333_1024.png" alt="">
-	                    </a></div>	
-	                    <div><a href="javascript:void(0);" class="thumbnail">
-	                      <img src="img/58f827499f333_1024.png" alt="">
-	                    </a></div>
-	                    <div><a href="javascript:void(0);" class="thumbnail">
-	                      <img src="img/58f827499f333_1024.png" alt="">
-	                    </a></div>
-	      				<div><a href="javascript:void(0);" class="thumbnail">
-	                      <img src="img/58f827499f333_1024.png" alt="">
-	                    </a></div>
-		 		
+	                    <div class="section">
+	                     <ul class="clearfix">			
+						    <li>
+							<div class="photo"><img src="img/58f827499f333_1024.png" width="200" height="210"/></div>
+							<div class="rsp"></div>
+							<div class="text"><a href="#"><h3>比赛名称</h3></a></div>
+							</li>
+							 <li>
+							<div class="photo"><img src="img/58f827499f333_1024.png" width="200" height="210"/></div>
+							<div class="rsp"></div>
+							<div class="text"><a href="#"><h3>比赛名称</h3></a></div>
+							</li>
+							 <li>
+							<div class="photo"><img src="img/58f827499f333_1024.png" width="200" height="210"/></div>
+							<div class="rsp"></div>
+							<div class="text"><a href="#"><h3>比赛名称</h3></a></div>
+							</li>
+							
+						</ul>
+						<div class="clear"></div>
+	                    </div>
 		 </div>
-		 </div>
-    
+    </div>
 		<div class="bottom"></div>
 	</body>
 	 <script type="text/javascript" src="<%=basePath%>/js/jquery.min.js" ></script>

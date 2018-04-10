@@ -17,9 +17,11 @@
 	<div class="nava"></div>
 	<div class="header"></div>
 	<div class="center">
+		
 		<div class="center_top">
 			<div class="center_menu">
-				<span><img src="img/pin.png"> <img src="img/works.png"
+				<span><img src="img/pin.png">
+				<img src="img/works.png"
 				width="100"> </span> <span class="more"><a href="works.jsp">更多</a></span>
 			</div>
 			 <s:action name="findFourProducts" executeResult="false" namespace="/"></s:action>
@@ -28,7 +30,7 @@
 				<div class="col-sm-6 col-md-3">
 					<div class="thumbnail">
 						<a href="javascript:void(0);" class="pic" >
-	                      <img src="<s:property value='#list.pic_path' />" alt="">
+	                      <img src="<s:property value='#list.pic_path' />" width="220" height="200">
 	                    </a>
 						<div class="caption">
 							<h4 style="text-align:center"><s:property value="#list.products_name" /></h4>
@@ -42,7 +44,7 @@
 				</div>
 				</s:iterator>
 			</div>
-			
+
 			<div class="center_menu">
 				<span><img src="img/pin.png"> <img src="img/menu2.png"
 					width="100"> </span> <span class="more"><a
@@ -53,12 +55,12 @@
 				<div class="col-sm-6 col-md-3">
 					<div class="thumbnail">
 						<a href="javascript:void(0);" class="pic" >
-	                      <img src="<s:property value='#list1.match_picture'/>" alt="" width="220" height="200">
+	                      <img src="<s:property value='#list1.match_picture'/>" width="220" height="200">
 	                    </a>
 						<div class="caption">
 							<h4 style="text-align:center"><s:property value="#list1.match_name" /></h4>
 							<p>
-								<a href="works.jsp" class="btn btn-primary " role="button">
+								<a href="Award.jsp" class="btn btn-primary " role="button">
 									查看详情 </a>
 							</p>
 						</div>
@@ -69,7 +71,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="newsa">
+<%-- 	<div class="newsa">
 		<div class="col-md-pull-8">
 			<div class="panel panel-success">
 				<div class="panel-heading">
@@ -99,10 +101,10 @@
 				<div class="panel-footer"></div>
 			</div>
 		</div>
-	</div>
+	</div> --%>
 	<div class="bottom"></div>
 <script type="text/javascript" src="<%=basePath%>/js/jquery.min.js"></script>
 <script type="text/javascript" src="<%=basePath%>/js/index.js"></script>
-<script type="text/javascript"	src="<%=basePath%>/js/jquery.bootstrap.newsbox.min.js"></script>
+
 </body>
 </html>

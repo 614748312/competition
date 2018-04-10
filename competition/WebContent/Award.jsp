@@ -10,7 +10,6 @@
 		<meta charset="UTF-8">
 	
 		<title>获奖动态</title>
-		<link rel="stylesheet" href="<%=basePath%>/css/base/my.css" />
 		<link rel="stylesheet" href="<%=basePath%>/css/base/index.css" />
 		<link rel="stylesheet" href="<%=basePath%>/css/base/bootstrap.css" />
 	  
@@ -19,21 +18,33 @@
 	    <div class="nava"></div>
 	    <div class="myinfo_center1">
 	      <div class="myinfo_left">
-	          <h2>关于第四届中国“互联网+”大学生创新创业获奖情况详情</h2>
+	          <h2>萍乡学院“互联网+”大学生创新创业获奖情况详情</h2>
 	          <p>发布时间:2018-01-01</p>
           
 	      </div>
 	      <div class="myinfo_right">
-						<div><a href="javascript:void(0);" class="thumbnail">
-	                      <img src="img/58f827499f333_1024.png" alt="">
-	                    </a></div>
-	                	<div><a href="javascript:void(0);" class="thumbnail">
-	                      <img src="img/58f827499f333_1024.png" alt="">
-	                    </a></div>	
-	                    <div><a href="javascript:void(0);" class="thumbnail">
-	                      <img src="img/58f827499f333_1024.png" alt="">
-	                    </a></div>				
-		 		
+	                    <h2>项目获奖详情</h2>
+						    <div class="section">
+	                     <ul class="clearfix">			
+						    <li>
+							<div class="photo"><img src="img/58f827499f333_1024.png" width="200" height="210"/></div>
+							<div class="rsp"></div>
+							<div class="text"><a href="#"><h3>比赛名称</h3></a></div>
+							</li>
+							 <li>
+							<div class="photo"><img src="img/58f827499f333_1024.png" width="200" height="210"/></div>
+							<div class="rsp"></div>
+							<div class="text"><a href="#"><h3>比赛名称</h3></a></div>
+							</li>
+							 <li>
+							<div class="photo"><img src="img/58f827499f333_1024.png" width="200" height="210"/></div>
+							<div class="rsp"></div>
+							<div class="text"><a href="#"><h3>比赛名称</h3></a></div>
+							</li>
+							
+						</ul>
+						<div class="clear"></div>
+	                    </div>
 		 </div>
 		 </div>
     

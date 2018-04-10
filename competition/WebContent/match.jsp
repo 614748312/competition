@@ -39,8 +39,11 @@
 				      
 				       <div class="match_center_img"></div><span><font size="5px">联系我们</font></span>
 				      <div class="match-center_text">信息与计算机工程学院副院长:李希勇老师<p>138-7996-9798</p></div>
+				<a  href="contest.jsp"class="btn btn-primary btn-lg">我要报名</a>
 				</div>
+				
 			</div>
+			
 		</div>
 		
 		<div class="bottom"></div>
