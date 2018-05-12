@@ -13,9 +13,6 @@ public class User {
 	@Id
 	private int tel;
 	private String password;
-
-	
-
 	public int getTel() {
 		return tel;
 	}
@@ -30,10 +27,5 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	@Override
-	public String toString() {
-		return "User [tel=" + tel + ", password=" + password + "]";
 	}
 }

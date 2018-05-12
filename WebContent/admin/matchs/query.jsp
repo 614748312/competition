@@ -37,7 +37,7 @@
            <th>比赛活动时间</th>
            <th>作品提交截止时间</th>
            <th>比赛的上传时间</th>
-           <th colspan="2">操作</th>
+           <th colspan="1">操作</th>
       </tr>
       </thead>
       <tbody>
@@ -51,7 +51,7 @@
 	        <td><s:property value="#match.lastsubmit_time" /></td>
 	        <td><s:property value="#match.match_publishtime" /></td>
 	        <td><a href='#' onclick="edit(<s:property value="#match.match_id"/>)">编辑赛事</a></td>
-	        <td><a href='#' onclick="del(<s:property value="#match.match_id"/>)">删除赛事以及其作品</a></td>
+	        <%-- <td><a href='#' onclick="del(<s:property value="#match.match_id"/>)">删除赛事以及其作品</a></td> --%>
 	  </tr>
 	   </s:iterator>
 	  </c:if>

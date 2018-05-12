@@ -19,6 +19,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Resource(name = "hibernateTemplate")
 	private HibernateTemplate hibernateTemplate;
+	 List<User> list;
 
 	@Override
 	public void addUser(User user) {
@@ -69,4 +70,13 @@ public class UserDaoImpl implements UserDao {
 		return list.get(0).intValue();
 	}
 
+	@Override
+	public String check(int telAjax) {
+		DetachedCriteria criteria = DetachedCriteria.forClass(User.class);
+		criteria.add(Restrictions.eq("tel",telAjax));
+		list=(List<User>)hibernateTemplate.findByCriteria(criteria);
+		return list.isEmpty() ? null : list.get(0).getPassword();
+	}
 }
+
+

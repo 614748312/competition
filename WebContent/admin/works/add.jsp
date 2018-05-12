@@ -31,7 +31,7 @@ request.setAttribute("path", basePath);  %>
 		   	  <ul>
 		   	  <li class="">
 		   	  <label class="">参与比赛</label>
-		   	  <select name="products_match" id="match_id"  class="dfinput">
+		   	  <select name="match.match_id" id="match_id"  class="dfinput">
 						<option value="">--请选择--</option>
 						<c:forEach items="${list }" var="c">
 							<option value="${c.match_id }">${c.match_name }</option>
@@ -46,16 +46,24 @@ request.setAttribute("path", basePath);  %>
                      <label class="">作者</label>
                      <input class="" type="text" value="" name="products_author"/>
                  </li>
+                 <li class="">
+                     <label class="">作品获奖情况</label>
+                     <input class="" type="text" value="" name="products_prize"/>
+                 </li>
                 <li>
                	<label class="">图片:</label>
                     <input id="file1" name="file" type="file"  onchange="fileUpload();"/><i></i>
                 </li>
                  <img src="" id="pic" width="120px" border="0"/>
                 <li><input id="picPath" name="pic_path" type="hidden" /></li>
-                  <li>
+                  <!-- <li>
                  	<label class="" style="font-weight:bolder;">作品简介:<br>
                   	<textarea id="content" name="products_text" cols="100" rows="8" style="width:800px;height:400px;" ></textarea></label>
-                 </li>
+                 </li> -->
+                 <li><label style="width:80px;">是否发布：</label><select name="products_value">
+    							<option value="1">是</option>
+    							<option value="0">否</option>
+    						 </select><i></i></li>
                  <li >
                  	<label class=""></label>
                  	<button name=""  type="submit" class="determine" onclick="vs()" >确认</button>

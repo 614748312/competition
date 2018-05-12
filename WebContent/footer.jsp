@@ -18,12 +18,10 @@
 			 	      <div><img src="./img/logo.png" height="30" width="300" class="name"></div>
 			        </div>
 			        <div class="nav_menu">
-			        <a href="index.jsp"><img src="img/footer1.png" width="100" class="menu1"></a>
-			        <a href="index.jsp"><img src="img/footer2.png" width="100" class="menu2"></a>
-			        <a href="index.jsp"><img src="img/footer3.png" width="100" class="menu3"></a>
-			        <a href="index.jsp"><img src="img/footer4.png" width="100" class="footer1"></a>
-			        <a href="login.jsp" class="admin">后台管理</a>
-			 </div>
+			        <p>版权：萍乡学院&nbsp;信息与计算机工程学院 &nbsp;地址：江西省萍乡市萍安北大道211号 </p>
+			        <p>邮编：337055 &nbsp;
+			                      联系电话：0799-6684899 传真：0799-6682222 &nbsp;</p>
+			        </div>
 	    </div>
 	</body>
 </html>

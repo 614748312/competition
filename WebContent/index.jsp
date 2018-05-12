@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%
 	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path;
 %>
 <%@taglib uri="/struts-tags" prefix="s" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -16,13 +16,12 @@
 <body>
 	<div class="nava"></div>
 	<div class="header"></div>
-	<div class="center">
-		
+	<div class="center">	
 		<div class="center_top">
 			<div class="center_menu">
-				<span><img src="img/pin.png">
+				<span style="margin-left:-12px;"><img src="img/pin.png">
 				<img src="img/works.png"
-				width="100"> </span> <span class="more"><a href="works.jsp">更多</a></span>
+				width="100"> </span> <span class="more"><a href="${path}findAllProductsForShow">更多</a></span>
 			</div>
 			 <s:action name="findFourProducts" executeResult="false" namespace="/"></s:action>
 			<div class="row">
@@ -30,13 +29,13 @@
 				<div class="col-sm-6 col-md-3">
 					<div class="thumbnail">
 						<a href="javascript:void(0);" class="pic" >
-	                      <img src="<s:property value='#list.pic_path' />" width="220" height="200">
+	                      <a href="<s:property value="#list.products_link" />"><img src="<s:property value='#list.pic_path' />" width="270" height="200"></a>
 	                    </a>
 						<div class="caption">
 							<h4 style="text-align:center"><s:property value="#list.products_name" /></h4>
-							<h4 style="text-align:center"><s:property value="#list.products_author" /></h4>
-							<p>
-								<a href="works.jsp" class="btn btn-primary " role="button">
+							<%-- <h4 style="text-align:center"><s:property value="#list.products_author" /></h4> --%>
+							<p style="text-align:center">
+								<a href="#" class="btn btn-primary" role="button" onclick="edit(<s:property value="#list.products_id"/>)">
 									查看详情 </a>
 							</p>
 						</div>
@@ -46,20 +45,20 @@
 			</div>
 
 			<div class="center_menu">
-				<span><img src="img/pin.png"> <img src="img/menu2.png"
+				<span style="margin-left:-12px;"><img src="img/pin.png"> <img src="img/menu2.png"
 					width="100"> </span> <span class="more"><a
-					href="contest.jsp">更多</a></span>
+					href="Award.jsp">更多</a></span>
 					<s:action name="findFourMatch" executeResult="false" namespace="/"></s:action>
 			 <div class="row">
-			   <s:iterator value="#request.list1" id="list1">
+			   <s:iterator value="#request.matchlist1" id="matchlist1">
 				<div class="col-sm-6 col-md-3">
 					<div class="thumbnail">
 						<a href="javascript:void(0);" class="pic" >
-	                      <img src="<s:property value='#list1.match_picture'/>" width="220" height="200">
+	                      <img src="<s:property value='#matchlist1.match_picture'/>" width="250" height="210">
 	                    </a>
 						<div class="caption">
-							<h4 style="text-align:center"><s:property value="#list1.match_name" /></h4>
-							<p>
+							<h4 style="text-align:center"><s:property value="#matchlist1.match_name" /></h4>
+							<p style="text-align:center">
 								<a href="Award.jsp" class="btn btn-primary " role="button">
 									查看详情 </a>
 							</p>
@@ -105,6 +104,11 @@
 	<div class="bottom"></div>
 <script type="text/javascript" src="<%=basePath%>/js/jquery.min.js"></script>
 <script type="text/javascript" src="<%=basePath%>/js/index.js"></script>
-
+<script type="text/javascript">
+function edit(products_id){
+			location.href="${pageContext.request.contextPath}/QeditProducts.action?products_id="+products_id;
+		}
+</script>
+	
 </body>
 </html>

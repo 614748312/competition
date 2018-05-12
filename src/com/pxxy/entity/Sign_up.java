@@ -1,10 +1,13 @@
 package com.pxxy.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "sign_up_tab")
@@ -16,19 +19,16 @@ public class Sign_up {
 	private String student_sex;
 	private String student_tel;
 	@ManyToOne
-	@JoinColumn(name="match_id",referencedColumnName="match_id")
-	private Match match;
-	@ManyToOne
 	@JoinColumn(name="tel",referencedColumnName="tel")
 	private User user;
-	public Match getMatch() {
-		return match;
+	public User getUser(){
+		return user;
+		
 	}
-
-	public void setMatch(Match match) {
-		this.match = match;
+	public void setUser(User user) {
+		this.user = user;
 	}
-
+	
 	public String getStudent_name() {
 		return student_name;
 	}
@@ -68,13 +68,11 @@ public class Sign_up {
 	public void setStudent_id(int student_id) {
 		this.student_id = student_id;
 	}
-
 	@Override
 	public String toString() {
 		return "Sign_up [student_id=" + student_id + ", student_name=" + student_name + ", student_department="
-				+ student_department + ", student_sex=" + student_sex + ", student_tel=" + student_tel + "]";
+				+ student_department + ", student_sex=" + student_sex + ", student_tel=" + student_tel + ", user="
+				+ user + "]";
 	}
-
-	
 
 }

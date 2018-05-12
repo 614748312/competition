@@ -40,7 +40,6 @@ function openRegisterModal(){
 function check(){	
 	var tel=logform.tel.value;
 	var password=logform.password.value;
-	logform.submit();
 	if(tel==""||tel==null){
 		alert("用户名不能为空");
 	    logform.tel.focus();
@@ -49,10 +48,9 @@ function check(){
 	else if(password==""||password==null){
 		alert("密码不能为空");
 		logform.password.focus();
-		 return false;
-		 
+		 return false;	 
 	}
-	
+	logform.submit();
 }
 
 function validateForm(){

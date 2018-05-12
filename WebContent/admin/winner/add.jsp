@@ -21,6 +21,10 @@ request.setAttribute("path", basePath);  %>
 		   <form action="${path }admin/addUserinfo">
 		   	  <ul>
 		   	     <li class="">
+                     <label class="">用户名:</label>
+                     <input class="" type="text" value="" name="user.tel"/>
+                 </li>
+		   	     <li class="">
                      <label class="">学生姓名:</label>
                      <input class="" type="text" value="" name="own_studentname"/>
                  </li>

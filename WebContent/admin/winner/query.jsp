@@ -32,7 +32,8 @@
 <table class="table">
 <thead>
       <tr >
-           <th>Id</th> <!--赛事的id-->  
+           <th>Id</th> <!--赛事的id--> 
+           <th>学生账户</th> 
            <th>学生姓名</th>      
            <th>参与的比赛</th>
            <th>参与比赛的作品</th>
@@ -46,6 +47,7 @@
       <s:iterator value="pb.list" id="userinfo">	
        <tr>
 	        <td><s:property value="#userinfo.own_id" /></td>
+	        <td><s:property value="#userinfo.user.tel" /></td>
 	        <td><s:property value="#userinfo.own_studentname" /></td>
 	        <td><s:property value="#userinfo.own_matchs" /></td>
 	        <td><s:property value="#userinfo.own_products" /></td>
@@ -58,13 +60,13 @@
 	  </c:if>
 	  <c:if test="${empty pb.list}">
 					<tr>
-					<td colspan="8" align="center">
+					<td colspan="9" align="center">
 					暂无信息
 					</td>
 					</tr>  
 	  </c:if>
 	  	  <tr>
-					<td colspan="8" align="center">
+					<td colspan="9" align="center">
 					<div class="pagination">					
 					第<s:property value="#request.pb.currentPage" />页
 						&nbsp;&nbsp; 共<s:property value="#request.pb.totalPage" /> 页

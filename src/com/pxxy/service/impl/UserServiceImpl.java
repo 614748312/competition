@@ -61,4 +61,10 @@ public class UserServiceImpl implements UserService {
 		pb.setTotalPage(totalPage);
 		return pb;
 	}
+
+	@Override
+	public String check(int telAjax) {
+		// TODO Auto-generated method stub
+		return userDao.check(telAjax);
+	}
 }

@@ -35,7 +35,7 @@
            <th>作品的所属赛事</th>
            <th>作品名</th>
            <th>作者</th>
-           <th>作品简介</th>
+           <th>作品获奖情况</th>
            <th colspan="2">操作</th>
       </tr>
       </thead>
@@ -44,10 +44,10 @@
       <s:iterator value="pb.list" id="products">	
        <tr>
 	        <td><s:property value="#products.products_id" /></td>
-	        <td><s:property value="#products.products_match" /></td>
+	        <td><s:property value="#products.match.match_id" /></td>
 	        <td><s:property value="#products.products_name" /></td>
 	        <td><s:property value="#products.products_author" /></td>
-	        <td><s:property value="#products.products_text" /></td>
+	        <td><s:property value="#products.products_prize" /></td>
 	        <td><a href='#' onclick="edit(<s:property value="#products.products_id"/>)">编辑</a></td>
 	        <td><a href='#' onclick="del(<s:property value="#products.products_id"/>)">删除</a></td>
 	  </tr>
@@ -67,15 +67,19 @@
 						&nbsp;&nbsp; 共<s:property value="#request.pb.totalPage" /> 页
 						&nbsp;&nbsp; 共<s:property value="#request.pb.count" />条信息
 					 <div style="height:10px;"></div>
-					 <s:if test="#request.pb.currentPage == 1"> 首页&nbsp;&nbsp;上一页 </s:if>
+					 <s:if test="#request.pb.currentPage == 1"> 首页&nbsp;&nbsp;上一页 
+					 </s:if>
 						<s:else>
 							<a href='#' onclick="fy(1)">首页</a> 
 							<a href='#' onclick="fy(<s:property value="#request.pb.currentPage - 1"/>)">上一页</a>
-						</s:else> <s:if test="#request.pb.currentPage != #request.pb.totalPage">
+						</s:else> 
+						<s:if test="#request.pb.currentPage != #request.pb.totalPage">
 							<a href='#'
 								onclick="fy(<s:property value="#request.pb.currentPage + 1"/>)">下一页</a>
 								<a	href='#' onclick="fy(<s:property value="#request.pb.totalPage"/>)">尾页</a>
-						</s:if> <s:else>下一页&nbsp;&nbsp;尾页</s:else> &nbsp;&nbsp;
+						</s:if> 
+						<s:else>下一页&nbsp;&nbsp;尾页
+						</s:else> &nbsp;&nbsp;
 						跳转至 <input type="text" style="height:22px;border: 1px solid #888;width:30px;border-radius: 0.2rem;" name="page" id="page"> 页 <a
 						href='#' onclick="validate()">跳转</a>
 				</div>

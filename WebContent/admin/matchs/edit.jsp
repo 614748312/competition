@@ -14,19 +14,17 @@ request.setCharacterEncoding("UTF-8");
 <head>
 <meta charset="UTF-8">
 <title>添加比赛</title>
-<link rel="stylesheet" href="${path }css/borain-timeChoice.css">
-<link rel="stylesheet" href="${path }css/add.css" type="text/css" />
-<link rel="stylesheet" href="${path }css/bootstrap.min.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/competition/admin/css/borain-timeChoice.css">
+<link rel="stylesheet" href="/competition/admin/css/add.css" type="text/css" />
+<link rel="stylesheet" href="/competition/admin/css/bootstrap.min.css" type="text/css" media="screen" />
 <!--编辑器-->
-<link rel="stylesheet" href="../kindeditor/themes/default/default.css" />
-<link rel="stylesheet" href="../kindeditor/plugins/code/prettify.css" />
-<script charset="utf-8" src="../kindeditor/kindeditor.js"></script>
-<script charset="utf-8" src="../kindeditor/lang/zh_CN.js"></script>
-<script charset="utf-8" src="../kindeditor/plugins/code/prettify.js"></script>	
+<link rel="stylesheet" href="/competition/admin/kindeditor/themes/default/default.css" />
+<script charset="utf-8" src="/competition/admin/kindeditor/kindeditor.js"></script>
+<script charset="utf-8" src="/competition/admin/kindeditor/lang/zh_CN.js"></script>
 <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
-<script type="text/javascript" src="${path }js/ajaxfileupload.js"></script>  
+<script type="text/javascript" src="../js/ajaxfileupload.js"></script>  
 <script type="text/javascript">		
 			KindEditor.ready(function(K) {
 			var editor = K.create('textarea[id="content"]', {

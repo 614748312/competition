@@ -1,18 +1,18 @@
 package com.pxxy.web.action;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -20,21 +20,50 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.pxxy.entity.PageBean;
 import com.pxxy.entity.Products;
+import com.pxxy.entity.Sign_up;
 import com.pxxy.service.ProductsService;
+import com.pxxy.service.Sign_upService;
 
 @ParentPackage("struts-default")
 @Namespace("/")
 @Controller("productsAction")
 @Scope("prototype")
 public class ProductsAction extends ActionSupport implements ModelDriven<Products> {
-	private Products products = new Products();
-	@Resource(name = "productsService")
+	
+	@Autowired 
 	private ProductsService productsService;
+	private Products products = new Products();
 	private List<Products> list = null;
 	private PageBean<Products> pb; 
 	private int currentPage=1; 
-	private int pageSize = 3;
+	private int pageSize = 8;
+	private String yy;
+	private String keywords;
+	public String getKeywords() {
+		return keywords;
+	}
+	public void setKeywords(String keywords) {
+		this.keywords = keywords;
+	}
 	
+	public String getYy() {
+		return yy;
+	}
+	public void setYy(String yy) {
+		this.yy = yy;
+	}
+	public Products getProducts() {
+		return products;
+	}
+	public void setProducts(Products products) {
+		this.products = products;
+	}
+	public List<Products> getList() {
+		return list;
+	}
+	public void setList(List<Products> list) {
+		this.list = list;
+	}
 	public PageBean<Products> getPb() {
 		return pb;
 	}
@@ -53,6 +82,27 @@ public class ProductsAction extends ActionSupport implements ModelDriven<Product
 	public void setPageSize(int pageSize) {
 		this.pageSize = pageSize;
 	}
+	@Autowired
+	private Sign_upService sign_upService;
+	List<Sign_up> Slist = null;
+	public List<Sign_up> getSlist() {
+		return Slist;
+	}
+	public void setSlist(List<Sign_up> slist) {
+		Slist = slist;
+	}
+	private List<Products> videoproducts = null;
+	private List<Products> developproducts = null;
+	private List<Products> pictureproducts = null;
+	public List<Products> getVideoproducts() {
+		return videoproducts;
+	}
+	public List<Products> getDevelopproducts() {
+		return developproducts;
+	}
+	public List<Products> getPictureproducts() {
+		return pictureproducts;
+	}
 	@Action(value = "findFourProducts", results = { @Result(name = "success", location = "/index.jsp") })
 	public String findFourProducts() {
 		try {
@@ -64,27 +114,53 @@ public class ProductsAction extends ActionSupport implements ModelDriven<Product
 		}
 		return "success";
 	}
+	@Action(value = "findAllTypeProductsForShow", results = { @Result(name = "success", location = "/works.jsp") })
+	public String findAllProductsForShow() {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		videoproducts=productsService.findVideoproducts();
+		request.setAttribute("videoproducts", videoproducts);
+		developproducts=productsService.findDevelopproducts();
+		request.setAttribute("developproducts", developproducts);
+		pictureproducts=productsService.findPictureproducts();
+		request.setAttribute("pictureproducts", pictureproducts);
+		return "success";
+	}
 	@Action(value = "/admin/findAllProducts", results = { @Result(name = "success", location = "/admin/works/query.jsp") })
-	public String findAllProducts() {
+	public String findAllProducts(){
 		pb=productsService.findAllProducts(currentPage,pageSize);
 		this.setPb(pb);	
 		return "success";
 	}
-	/*@Action(value = "findAllProductsForShow")
-	public String findAllProductsForShow() {
-		try {
-			List<Products> list = productsService.findAllProducts();
-			HttpServletResponse response = ServletActionContext.getResponse(); // 鍝嶅簲瀵硅薄
-			response.setContentType("text/html;charset=UTF-8"); // 鍛婄煡娴忚鍣ㄤ娇鐢║TF-8缂栫爜
-			PrintWriter out = response.getWriter();
-			String json = JSONArray.fromObject(list).toString();
-			System.out.println(json);
-			out.write(json);
-		} catch (IOException e) {
+	@Action(value="findProductsBykey",results={@Result(name="success",location="/")})
+	public String findProductsBykey(){
+		try{
+		list = productsService.findProductsBykey(keywords);
+		System.out.println(list.get(0).getProducts_name());
+		}catch(Exception e){
 			e.printStackTrace();
 		}
 		return null;
-	}*/
+	}					
+	@Action(value = "findUserProductsForShow", results = { @Result(name = "success", location = "/myinfo.jsp") })
+	public String findThreeProductsForDrop() {
+		try {
+			HttpServletRequest request = ServletActionContext.getRequest();
+			HttpSession session = request.getSession();
+			String yy=request.getSession().getAttribute("tel").toString();
+			int tel=Integer.parseInt(yy);
+			list = productsService.findUserProductsForShow(tel);
+			request.setAttribute("products1", list);
+			Slist=sign_upService.findSignUpByTel(tel);
+			session.setAttribute("student_department", Slist.get(0).getStudent_department());
+			session.setAttribute("student_name", Slist.get(0).getStudent_name());
+			session.setAttribute("student_tel", Slist.get(0).getStudent_tel());
+			session.setAttribute("student_sex", Slist.get(0).getStudent_sex());
+			session.setAttribute("student_id", Slist.get(0).getStudent_id());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "success";
+	}
 	@Action(value = "/admin/delProducts")
 	public void delProducts(){
 		try {
@@ -106,6 +182,19 @@ public class ProductsAction extends ActionSupport implements ModelDriven<Product
 		}
 		return "success";
 	}
+	@Action(value = "QeditProducts", results = { @Result(name = "success", location = "/list.jsp") })
+	public String QeditProducts() {
+		try {
+			products = productsService.findProductsById(products.getProducts_id());
+			this.setProducts(products);
+			// ActionContext.getContext().getValueStack().push(category);
+			HttpServletResponse response = ServletActionContext.getResponse();
+			response.setContentType("text/html;charset=UTF-8");// 鍛婄煡娴忚鍣ㄤ娇鐢ㄤ粈涔堢紪鐮佽В鏋愭枃鏈�
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "success";
+	}
 	@Action(value = "/admin/updateProducts")
 	public void updateProducts() {
 		try {
@@ -114,8 +203,24 @@ public class ProductsAction extends ActionSupport implements ModelDriven<Product
 			e.printStackTrace();
 		}
 	}
+	/*@Action(value = "QupdateProducts")
+	public void QupdateProducts() {
+		try {
+			productsService.updateProducts(products);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}*/
 	@Action(value = "/admin/addProducts")
 	public void addProducts() {
+		try {
+			productsService.addProducts(products);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	@Action(value = "QaddProducts", results = { @Result(name = "success", location = "/findUserProductsForShow",type = "redirect") })
+	public void QaddProducts() {
 		try {
 			productsService.addProducts(products);
 		} catch (Exception e) {
@@ -133,24 +238,11 @@ public class ProductsAction extends ActionSupport implements ModelDriven<Product
 		}
 		return "success";
 	}*/
-	
 	@Override
 	public Products getModel() {
 		
 		return products;
 	}
-	public Products getProducts() {
-		return products;
-	}
-	public void setProducts(Products products) {
-		this.products = products;
-	}
-	public List<Products> getList() {
-		return list;
-	}
-	public void setList(List<Products> list) {
-		this.list = list;
-	}
 	
-
+	
 }

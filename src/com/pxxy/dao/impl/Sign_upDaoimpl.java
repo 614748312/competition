@@ -10,6 +10,7 @@ import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.pxxy.dao.Sign_upDao;
+import com.pxxy.entity.Match;
 import com.pxxy.entity.Sign_up;
 import com.pxxy.entity.User;
 
@@ -61,10 +62,9 @@ public class Sign_upDaoimpl implements Sign_upDao {
 
 	@Override
 	public List<Sign_up> findSignUpByTel(int tel) {
-		// TODO Auto-generated method stub
-		DetachedCriteria criteria = DetachedCriteria.forClass(Sign_up.class);
-		criteria.add(Restrictions.eq("user.tel", tel));
-		return (List<Sign_up>) hibernateTemplate.findByCriteria(criteria);
-	}
-
+		
+	DetachedCriteria criteria = DetachedCriteria.forClass(Sign_up.class);
+	criteria.add(Restrictions.eq("user.tel", tel));
+	return (List<Sign_up>) hibernateTemplate.findByCriteria(criteria);
+}
 }

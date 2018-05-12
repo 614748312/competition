@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -56,6 +57,7 @@ public class ProductsDaoimpl implements ProductsDao{
 		// TODO Auto-generated method stub
 		DetachedCriteria criteria = DetachedCriteria.forClass(Products.class);
 		criteria.addOrder(Order.desc("products_id"));
+		criteria.add(Restrictions.eq("products_value",1));
 		return (List<Products>) hibernateTemplate.findByCriteria(criteria , 0, 4);
 	}
 
@@ -72,6 +74,51 @@ public class ProductsDaoimpl implements ProductsDao{
 		List list1 = new ArrayList<>();
 		List<Long> list = (List<Long>) hibernateTemplate.find(sql, list1.toArray());		
 		return list.get(0).intValue();
+	}
+	
+	@Override
+	public List<Products> findUserProductsForShow(int tel) {
+		// TODO Auto-generated method stub
+		DetachedCriteria criteria = DetachedCriteria.forClass(Products.class);
+		criteria.add(Restrictions.eq("user.tel",tel));
+		criteria.add(Restrictions.eq("products_value",1));
+		return (List<Products>) hibernateTemplate.findByCriteria(criteria);
+	}
+
+	@Override
+	public List<Products> findVideoproducts() {
+		DetachedCriteria criteria = DetachedCriteria.forClass(Products.class);
+		criteria.add(Restrictions.eq("products_type","视频"));
+		criteria.add(Restrictions.eq("products_value",1));
+		// TODO Auto-generated method stub
+		return (List<Products>) hibernateTemplate.findByCriteria(criteria);
+	}
+
+	@Override
+	public List<Products> findDevelopproducts() {
+		DetachedCriteria criteria = DetachedCriteria.forClass(Products.class);
+		criteria.add(Restrictions.eq("products_type","开发"));
+		criteria.add(Restrictions.eq("products_value",1));
+		// TODO Auto-generated method stub
+		return (List<Products>) hibernateTemplate.findByCriteria(criteria);
+	}
+
+	@Override
+	public List<Products> findPictureproducts() {
+		DetachedCriteria criteria = DetachedCriteria.forClass(Products.class);
+		criteria.add(Restrictions.eq("products_type","图片"));
+		criteria.add(Restrictions.eq("products_value",1));
+		// TODO Auto-generated method stub
+		return (List<Products>) hibernateTemplate.findByCriteria(criteria);
+	}
+
+	@Override
+	public List<Products> findProductsBykey(String keywords) {
+		DetachedCriteria criteria = DetachedCriteria.forClass(Products.class);
+		if(keywords !=null && keywords.length()>0){
+		criteria.add(Restrictions.like("products_name", "%"+keywords+"%"));  
+		}
+		return (List<Products>) hibernateTemplate.findByCriteria(criteria);
 	}
 
 }

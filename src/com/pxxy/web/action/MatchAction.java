@@ -30,17 +30,52 @@ import net.sf.json.JSONArray;
 @Controller("matchAction")
 @Scope("prototype")
 public class MatchAction extends ActionSupport implements ModelDriven<Match> {
-	private Match match = new Match();
 	@Autowired
 	private MatchService matchService;
-	private ProductsService productsService;
+	private Match match = new Match();
 	private PageBean<Match> pb;  
 	private int currentPage=1; 
 	private int pageSize = 9;
-	List<Match> list = null;
+	private List<Match> list = null;
+	
+	public void setList(List<Match> list) {
+		this.list = list;
+	}
 	public List<Match> getList() {
 		return list;
 	}
+	public Match getMatch() {
+		return match;
+	}
+
+	public void setMatch(Match match) {
+		this.match = match;
+	}
+
+	public int getPageSize() {
+		return pageSize;
+	}
+
+	public void setPageSize(int pageSize) {
+		this.pageSize = pageSize;
+	}
+
+	public int getCurrentPage() {
+		return currentPage;
+	}
+
+	public void setCurrentPage(int currentPage) {
+		this.currentPage = currentPage;
+	}
+
+	public PageBean<Match> getPb() {
+		return pb;
+	}
+
+	public void setPb(PageBean<Match> pb) {
+		this.pb = pb;
+	}
+
 	@Action(value = "/admin/findAllMatch", results = { @Result(name = "success", location = "/admin/matchs/query.jsp") })
 	public String findAllMatch() {
 		pb=matchService.findAllMatch(currentPage,pageSize);
@@ -53,7 +88,7 @@ public class MatchAction extends ActionSupport implements ModelDriven<Match> {
 		try{
 			HttpServletRequest request = ServletActionContext.getRequest();
 			list = matchService.findFourMatch();
-		    request.setAttribute("list1", list);	
+		    request.setAttribute("matchlist1", list);	
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -125,44 +160,6 @@ public class MatchAction extends ActionSupport implements ModelDriven<Match> {
 	public Match getModel() {
 		
 		return match;
-	}
-
-	public Match getMatch() {
-		return match;
-	}
-
-	public void setMatch(Match match) {
-		this.match = match;
-	}
-
-	public int getPageSize() {
-		return pageSize;
-	}
-
-	public void setPageSize(int pageSize) {
-		this.pageSize = pageSize;
-	}
-
-	public int getCurrentPage() {
-		return currentPage;
-	}
-
-	public void setCurrentPage(int currentPage) {
-		this.currentPage = currentPage;
-	}
-
-	public PageBean<Match> getPb() {
-		return pb;
-	}
-
-	public void setPb(PageBean<Match> pb) {
-		this.pb = pb;
-	}
-	public ProductsService getProductsService() {
-		return productsService;
-	}
-	public void setProductsService(ProductsService productsService) {
-		this.productsService = productsService;
 	}
 
 }

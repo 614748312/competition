@@ -28,7 +28,7 @@
                 
                 <ul class="dropdown-menu-uu" style="display: none" id="ad_setting_ul">
                     <li class="ad_setting_ul_li" onclick="javascript:$('#uform').submit();"> 
-                    	<a href="login.jsp"><i class="icon-signout glyph-icon"></i> <span class="font-bold">退出</span></a></li>
+                    	<a href="${pageContext.request.contextPath}/index.jsp"><i class="icon-signout glyph-icon"></i> <span class="font-bold">退出</span></a></li>
                 </ul>
               
             </div>
@@ -69,8 +69,8 @@
                 <a href="javascript:;" target="menuFrame"> <i class="glyph-icon icon-location-arrow"></i>参赛人员管理</a>
                 <ul>
                     <li><a href="${path }admin/findAllSign_up" target="menuFrame"><i class="glyph-icon icon-chevron-right"></i>查询参赛学生</a></li>
-                    <li><a href="${path }admin/findAllUserinfo" target="menuFrame"><i class="glyph-icon icon-chevron-right"></i>查询获奖情况</a></li>
-                    <li><a href="javascript:show('admin/winner/add.jsp')"><i class="glyph-icon icon-chevron-right"></i>添加获奖情况</a></li>
+                   <%--  <li><a href="${path }admin/findSomeSign_up" target="menuFrame"><i class="glyph-icon icon-chevron-right"></i>查询获奖情况</a></li> --%>
+                   <!--  <li><a href="javascript:show('admin/winner/add.jsp')"><i class="glyph-icon icon-chevron-right"></i>添加获奖情况</a></li> -->
                 </ul>
             </li> 
         </ul>

@@ -21,7 +21,7 @@ request.setAttribute("path", basePath);  %>
 <link rel="stylesheet" href="../kindeditor/plugins/code/prettify.css" />
 <script charset="utf-8" src="../kindeditor/kindeditor.js"></script>
 <script charset="utf-8" src="../kindeditor/lang/zh_CN.js"></script>
-<script charset="utf-8" src="../kindeditor/plugins/code/prettify.js"></script>
+<!-- <script charset="utf-8" src="../kindeditor/plugins/code/prettify.js"></script> -->
 <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>

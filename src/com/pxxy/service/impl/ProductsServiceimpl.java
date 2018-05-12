@@ -68,4 +68,34 @@ public class ProductsServiceimpl implements ProductsService{
 		pb.setTotalPage(totalPage);
 		return pb;
 	}
+
+	@Override
+	public List<Products> findUserProductsForShow(int tel) {
+		// TODO Auto-generated method stub
+		return  productsDao.findUserProductsForShow(tel);
+	}
+
+	@Override
+	public List<Products> findVideoproducts() {
+		// TODO Auto-generated method stub
+		return productsDao.findVideoproducts();
+	}
+
+	@Override
+	public List<Products> findDevelopproducts() {
+		// TODO Auto-generated method stub
+		return productsDao.findDevelopproducts();
+	}
+
+	@Override
+	public List<Products> findPictureproducts() {
+		// TODO Auto-generated method stub
+		return productsDao.findPictureproducts();
+	}
+
+	@Override
+	public List<Products> findProductsBykey(String keywords) {
+		// TODO Auto-generated method stub
+		return productsDao.findProductsBykey(keywords);
+	}
 }

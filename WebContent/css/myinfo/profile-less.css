@@ -3,13 +3,14 @@
 }
 
 .setting-profile {
-	width: 490px;
+	width: 610px;
 	margin-left: auto;
 	margin-right: auto;
 	background-color: #fff
 }
 
 .setting-profile .wlfg-wrap .label-name {
+	margin-left:20px;
 	float: left;
 	width: 70px;
 	text-align: right;
@@ -26,7 +27,7 @@
 
 .setting-profile .wlfg-wrap .rlf-group {
 	float: left;
-	width: 410px;
+	width: 200px;
 	margin-left: 8px;
 	color: #60686b
 }
@@ -191,7 +192,7 @@
 }
 
 .page-settings .setting .contentBox .formBox {
-	width: 520px;
+	width: 620px;
 	margin: auto
 }
 

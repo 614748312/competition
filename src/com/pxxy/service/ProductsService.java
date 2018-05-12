@@ -21,4 +21,14 @@ public interface ProductsService {
 
 	List<Products> findFourProducts();
 
+	List<Products> findUserProductsForShow(int tel);
+
+	List<Products> findVideoproducts();
+
+	List<Products> findDevelopproducts();
+
+	List<Products> findPictureproducts();
+
+	List<Products> findProductsBykey(String keywords);
+
 }

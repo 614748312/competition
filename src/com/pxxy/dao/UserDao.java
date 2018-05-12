@@ -19,4 +19,6 @@ public interface UserDao {
 	public List<User> findAllUser(int currentPage, int pageSize);
     
 	int getCount();
+
+	public String check(int telAjax);
 }

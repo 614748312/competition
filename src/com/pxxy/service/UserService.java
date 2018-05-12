@@ -17,4 +17,6 @@ public interface UserService {
 
 	public User findUserByTel(int tel);
 
+	public String check(int telAjax);
+
 }

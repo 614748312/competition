@@ -10,19 +10,23 @@ request.setAttribute("path", basePath);  %>
 	<head>
 		<meta charset="UTF-8">
 		<title>作品添加</title>
-<link rel="stylesheet" href="../css/borain-timeChoice.css">
-<link rel="stylesheet" href="../css/add.css" type="text/css" />
-<script type="text/javascript" src="../js/jquery.js"></script>
-<link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/competition/admin/css/borain-timeChoice.css">
+<link rel="stylesheet" href="/competition/admin/css/add.css" type="text/css" />
+<script type="text/javascript" src="/competition/admin/js/jquery.js"></script>
+<link rel="stylesheet" href="/competition/admin/css/bootstrap.min.css" type="text/css" media="screen" />
 	<body>
 	<div>
 		<p>添加作品</p>
         <div class="content" >
 		   <form action="${path }admin/updateUserinfo">
 		   	  <ul>
-		   	  <li class="">
+		   	    <li class="">
                      <label class="">获奖id:</label>
                      <input class="" type="text" value="${userinfo.own_id }" name="own_id"/>
+                </li>
+                <li class="">
+                     <label class="">获奖用户:</label>
+                     <input class="" type="text" value="${userinfo.user.tel }" name="user.tel"/>
                 </li>
                 <li class="">
                      <label class="">学生姓名:</label>

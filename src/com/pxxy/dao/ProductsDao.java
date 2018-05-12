@@ -22,5 +22,15 @@ public interface ProductsDao {
 
 	int getCount();
 
+	List<Products> findUserProductsForShow(int tel);
+
+	List<Products> findVideoproducts();
+
+	List<Products> findDevelopproducts();
+
+	List<Products> findPictureproducts();
+
+	List<Products> findProductsBykey(String keywords);
+
 
 }

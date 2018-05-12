@@ -2,7 +2,9 @@ html, body {
 	margin: 0px;
 	padding: 0px;
 }
-
+ul{
+	list-style:none;
+}
 .center {
 	height: 800px;;
 	width: 70.5%;
@@ -78,75 +80,39 @@ html, body {
 .name {
 	position: relative;
 	left: 50px;
-	top: -35px;
+	top: -40px;
 }
 
 .nav_menu {
 	height: 80px;
-	width: 600px;
-	padding-top: 20px;
-	margin-left: 45%;
-	float: left;
+	width:1000px;
+	padding-top: 30px;
+	margin-left: 35%;
+	float:right;
 	position: absolute;
 }
-
-#ab {
-	position: relative;
-	background-color: #007bbb;
-	border: none;
-	outline: medium;
-	font-size: larger;
-	color: #fff;
-	left: 50%;
-	top: 15%;
+.nav_menu ul li{
+	float:left;
+	margin:5px;
 }
-
-.logout {
-	position: relative;
-	left: 150%;
-	top: -32px;
-}
-
+.nav_menu #b{
+	left:90%;
+	position:absolute;
+} 
+.nav_menu h3{
+	margin-top:7px;
+} 
 #aaa {
 	border-radius: 30px;
+	margin-left:200px;
+	margin-top:-10px;
+	
 }
-
-.menu1 {
-	position: relative;
-	top: 8px;
-	left: 5px;
+#aab {
+	border-radius: 30px;
+	margin-left:200px;
+	
 }
-
-.menu2 {
-	position: relative;
-	left: 45px;
-	top: 8px;
-}
-
-.menu3 {
-	position: relative;
-	top: 8px;
-	left: 75px;
-}
-
-.menu4 {
-	position: relative;
-	top: 8px;
-	left: 40%;
-}
-
-.menu5 {
-	position: relative;
-	top: 8px;
-	left: 45%;
-}
-
-.menu6 {
-	position: relative;
-	top: 8px;
-	left: 105px;
-}
-
 .bottom {
 	width: 100%;
 	height: 110px;
@@ -277,9 +243,9 @@ html, body {
 }
 
 .match_center_img {
-	margin-right: 10px;
+	margin-right: 15px;
 	width: 84px;
-	height: 50px;
+	height: 60px;
 	padding: 3px;
 	font-size: 16px;
 	display: inline;
@@ -375,18 +341,61 @@ label.w3layouts {
 	height: 800px;
 	width: 100%;
 }
+.ul_menu{
+	position: relative;
+    margin-top: -50px;
+    margin-left: 100%;
+}
 
 .myinfo_center1 {
 	height: 1000px;
-	width: 100%;
+	width:80%;
+	margin-bottom: 100px;
+	text-align:center;
+	margin-left:10%;
+	background:rgba(0,123,187,0.3) ;
+	margin-top:10px;
+}
+.myinfo_center2{
+	height:auto;
 	width: 100%;
 	margin-bottom: 100px;
 }
-
 .myinfo_center {
 	height: auto;
 }
+.list_center{
+	height:auto;
+	width:70%;
+	background-color:white;
+	margin-top:100px;
+	margin-left:15%;
+}
+.list_team{
+	height:300px;
+	width:100%;
 
+}
+.team{
+	margin-left:100px;
+	height:250px;
+	width:500px;
+}
+.list_teacher{
+	height:300px;
+	width:100%;
+}
+.icon_team{
+	height:50px;
+	width:50%;
+	font-size:30px;
+	font-weight:bolder;
+}
+
+.list_team_introduce{
+	height:300px;
+	width:100%;
+}
 .myinfo_left {
 	height: auto;
 	width: 65%;
@@ -399,9 +408,9 @@ label.w3layouts {
 
 .myinfo_right {
 	height: auto;
-	width: 15%;
+	width: 18%;
 	float: left;
-	margin-left:50px;
+	margin-left:80px;
 	background-color: #f4f4f4;
 	margin-top: 100px;
 }
@@ -414,7 +423,7 @@ label.w3layouts {
 
 .myinfo_right  h2 {
 	color: #1446a0;
-	margin-left:40px;
+	margin-left:80px;
 }
 .myinfo_left  h2 {
 	color: #1446a0;
@@ -422,7 +431,7 @@ label.w3layouts {
 }
 
 p {
-	color: #666;
+	color: #fcf8e3;
 	font-size: 20px;
 }
 
@@ -434,20 +443,20 @@ p {
 	float: left;
 	margin-bottom: 13px;
 	display: inline;
-	width: 200px;
+	width: 250px;
 	height: 210px;
 	overflow: hidden;
 	position: relative;
 }
 
 .section ul li .photo {
-	width: 200px;
+	width: 250px;
 	height: 210px;
 	overflow: hidden;
 }
 
 .section .rsp {
-	width: 200px;
+	width: 250px;
 	height: 210px;
 	overflow: hidden;
 	position: absolute;
@@ -458,15 +467,15 @@ p {
 
 .section .text {
 	position: absolute;
-	width: 200px;
+	width: 250px;
 	height: 210px;
-	left: -200px;
+	left: -250px;
 	top: 0px;
 	overflow: hidden;
 }
 
 .section .text h3 {
-	width: 200px;
+	width: 250px;
 	margin-top: 160px;
 	height: 40px;
 	line-height: 40px;
@@ -487,4 +496,45 @@ p {
 	height: 40px;
 	margin-top:50px;
 }
+.page{
+	margin-top:40px;
+}
 
+           .box1{
+				margin: 0 auto;
+				width: 1200px;
+				
+			}
+			.fl_l{
+				width: 200px;
+				float: left;
+				margin-top:5px;	
+			}
+			.fl_l li a{
+				border-bottom: 1px solid #eee;
+				text-align: center;
+				display: block;
+				color:#0000ff;
+				font-size: 20px;
+				line-height: 60px;
+				
+			}
+			.fl_l li.active a{
+				background:#337ab7;
+				color: #fff;
+			}
+			.fl_r{
+				float: right;
+				width: 960px;
+			}
+			.fl_r li{
+				margin-bottom: 30px;
+                opacity:0.5;
+				font-size: 50px;
+				line-height: 300px;
+				display: block;
+				text-align: center;
+				background:rgba(0,123,187,0.8);
+			}
+			
+			

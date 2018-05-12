@@ -11,48 +11,70 @@ request.setAttribute("path", basePath);  %>
 		<meta charset="UTF-8">
 		<title>作品添加</title>
 
-<link rel="stylesheet" href="../css/add.css" type="text/css" />
-<script type="text/javascript" src="../js/jquery.js"></script>
-<link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/competition/admin/css/add.css" type="text/css" />
+<script type="text/javascript" src="/competition/admin/js/jquery.js"></script>
+<link rel="stylesheet" href="/competition/admin/css/bootstrap.min.css" type="text/css" media="screen" />
 
 <!--编辑器-->
+<link rel="stylesheet" href="/competition/admin/kindeditor/themes/default/default.css" />
+<script charset="utf-8" src="/competition/admin/kindeditor/kindeditor.js"></script>
+<script charset="utf-8" src="/competition/admin/kindeditor/lang/zh_CN.js"></script>
 <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
-<link href="../dist/summernote.css" rel="stylesheet"/>
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
-<script type="text/javascript" src="${path }js/ajaxfileupload.js"></script>  
+<script type="text/javascript" src="${path }js/ajaxfileupload.js"></script>
+<!-- <script type="text/javascript">		
+			KindEditor.ready(function(K) {
+			var editor = K.create('textarea[id="content"]', {
+				cssPath : '../kindeditor/plugins/code/prettify.css',
+				uploadJson : '../kindeditor/jsp/upload_json.jsp',
+				fileManagerJson : '../kindeditor/jsp/file_manager_json.jsp',
+				allowFileManager : true,
+				afterBlur : function() {
+					this.sync();
+					K.ctrl(document, 13, function() {
+					K("form[name='ff']")[0].submit();
+					});
+					K.ctrl(this.edit.doc, 13, function() {
+					K("form[name='ff']")[0].submit();
+					});
+					}
+				});
+				prettyPrint();
+			});		
+		</script>   -->
 	<body>
 	<div>
 		<p>添加作品</p>
         <div class="content" >
-		   <form action="${path }admin/updateProducts" enctype="multipart/form-data">
+		   <form action="${path }admin/updateProducts" method="post" enctype="multipart/form-data">
 		   	  <ul>
 		   	  <li class="">
                      <label class="">作品id:</label>
                      <input class="" type="text" value="${products.products_id}" name="products_id"/>
                 </li>
 		   	  	  <li class="">
-                     <label class="">作品的所属赛事:</label>
-                     <input class="" type="text" value="${products.products_match}" name="products_match"/>
+                     <label class="">参与的比赛id:</label>
+                     <input class="" type="text" value="${products.match.match_id}" name="match.match_id"/>
                 </li>
                 <li class="">
                      <label class="">作品名</label>
                      <input class="" type="text" value="${products.products_name}" name="products_name"/>
                 </li>
                 <li class="">
-                     <label class="">作者</label>
+                     <label class="">项目成员</label>
                      <input class="" type="text" value="${products.products_author}" name="products_author"/>
+                </li>
+                 <li class="">
+                     <label class="">项目获奖情况</label>
+                     <input class="" type="text" value="${products.products_prize}" name="products_prize"/>
                  </li>
-               <li>
+                  <li>
                	<label class="">图片:</label>
                     <input id="file1" name="file" type="file"  onchange="fileUpload();"/><i></i>
                 </li>
                  <img src="${path }${products.pic_path}" id="pic" width="120px" border="0"/>
                 <li><input id="picPath" name="pic_path" type="hidden" /></li>
-                  <li>
-                 	<label class="" style="font-weight:bolder;">比赛简介:<br>
-                  	<textarea id="content" name="products_text" cols="100" rows="8" style="width:800px;height:400px;" >${products.products_text}</textarea></label>
-                 </li>
                  <li >
                  	<label class=""></label>
                  	<button name=""  type="submit" class="determine" onclick="vs()" >确认</button>
@@ -66,21 +88,12 @@ request.setAttribute("path", basePath);  %>
 <script type="text/javascript">
 function vs(){
 	if(("#picPath").val()==""){
-		$("#picPath").val("${products.pic_path}");
-		}
-	alert("添加成功")
+	$("#picPath").val("${products.pic_path}");
+	}
+	alert("更新成功");
 }
-    function controlLen(){ 
-    //获取input输入框元素 
-    var inputText = document.getElementById('mytext').value; 
-    if(inputText.length > 30){ 
-        var text = inputText.substring(0,30); 
-        document.getElementById('mytext').value = text;//从新设置input输入框的值 
-        alert("最多输入30个字符"); 
-    } 
-} 
 </script>
- <script type="text/javascript">
+<script type="text/javascript">
 	function fileUpload() {
 	var files = ['file1'];  //将上传三个文件 ID 分别为file2,file2,file3
 	$.ajaxFileUpload( {

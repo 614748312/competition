@@ -9,15 +9,38 @@ request.setAttribute("path", basePath);  %>
 	<head>
 		<meta charset="UTF-8">
 		<title>添加新闻</title>
-<link rel="stylesheet" href="../css/borain-timeChoice.css">
-<link rel="stylesheet" href="../css/add.css" type="text/css" />
-<script type="text/javascript" src="../js/jquery.js"></script>
-<link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="/competition/admin/css/borain-timeChoice.css">
+<link rel="stylesheet" href="/competition/admin/css/add.css" type="text/css" />
+<script type="text/javascript" src="/competition/admin/js/jquery.js"></script>
+<link rel="stylesheet" href="/competition/admin/css/bootstrap.min.css" type="text/css" media="screen" />
 <!--编辑器-->
+<link rel="stylesheet" href="/competition/admin/kindeditor/themes/default/default.css" />
+<script charset="utf-8" src="/competition/admin/kindeditor/kindeditor.js"></script>
+<script charset="utf-8" src="/competition/admin/kindeditor/lang/zh_CN.js"></script>
 <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 <script src="http://www.jq22.com/jquery/bootstrap-3.3.4.js"></script>
 <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/bootstrap-3.3.4.css">
-<script type="text/javascript" src="${path }js/ajaxfileupload.js"></script>  
+<script type="text/javascript" src="${path }js/ajaxfileupload.js"></script>
+<script type="text/javascript">		
+			KindEditor.ready(function(K) {
+			var editor = K.create('textarea[id="content"]', {
+				cssPath : '../kindeditor/plugins/code/prettify.css',
+				uploadJson : '../kindeditor/jsp/upload_json.jsp',
+				fileManagerJson : '../kindeditor/jsp/file_manager_json.jsp',
+				allowFileManager : true,
+				afterBlur : function() {
+					this.sync();
+					K.ctrl(document, 13, function() {
+					K("form[name='ff']")[0].submit();
+					});
+					K.ctrl(this.edit.doc, 13, function() {
+					K("form[name='ff']")[0].submit();
+					});
+					}
+				});
+				prettyPrint();
+			});		
+		</script> 
 	<body>
 	<div class="news_add">
 		<p>添加新闻</p>

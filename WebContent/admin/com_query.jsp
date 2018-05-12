@@ -35,6 +35,8 @@
            <th>学生所属院系</th>
            <th>学生名字</th>
            <th>学生性别</th>
+           <th>参赛项目</th>
+           <th>获奖情况</th>     
            <th>学生个人电话号码</th>
            <th colspan="2">操作</th>
       </tr>
@@ -47,21 +49,23 @@
 	        <td><s:property value="#sign_up.student_department" /></td>
 	        <td><s:property value="#sign_up.student_name" /></td>
 	        <td><s:property value="#sign_up.student_sex" /></td>
+	        <td><s:property value="#sign_up.student_project" /></td>
+	        <td><s:property value="#sign_up.student_prize" /></td>
 	        <td><s:property value="#sign_up.student_tel" /></td>
-	        <td><a href='#' onclick="edit(<s:property value="#sign_up.student_id"/>)">编辑</a></td>
+	        <td><a href='#' onclick="edit(<s:property value="#sign_up.student_id"/>)">编辑信息和奖项</a></td>
 	        <td><a href='#' onclick="del(<s:property value="#sign_up.student_id"/>)">删除</a></td>
 	  </tr>
 	   </s:iterator>
 	  </c:if>
 	  <c:if test="${empty pb.list}">
 					<tr>
-					<td colspan="6" align="center">
+					<td colspan="8" align="center">
 					暂无信息
 					</td>
 					</tr>  
 	  </c:if>
 	  	  <tr>
-					<td colspan="6" align="center">
+					<td colspan="8" align="center">
 					<div class="pagination">					
 					第<s:property value="#request.pb.currentPage" />页
 						&nbsp;&nbsp; 共<s:property value="#request.pb.totalPage" /> 页

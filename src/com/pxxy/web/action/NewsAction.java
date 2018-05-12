@@ -30,9 +30,10 @@ import net.sf.json.JSONArray;
 @Controller("newsAction")
 @Scope("prototype")
 public class NewsAction extends ActionSupport implements ModelDriven<News> {
-	private News news=new News();
+	
 	@Autowired
 	private NewsService newsService;
+	private News news=new News();
 	private PageBean<News> pb;  
 	private int currentPage=1; 
 	private int pageSize = 9;
@@ -72,7 +73,7 @@ public class NewsAction extends ActionSupport implements ModelDriven<News> {
 		try{
 			HttpServletRequest request = ServletActionContext.getRequest();
 			list = newsService.findFourNews();
-		    request.setAttribute("list1", list);	
+		    request.setAttribute("news1", list);	
 		}catch (Exception e) {
 			e.printStackTrace();
 		}

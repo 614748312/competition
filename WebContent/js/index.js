@@ -7,21 +7,46 @@ $(function(){
 );
 
 function a1(){
+	     $(".formBox1").css("display","");
 		 $(".formBox").css("display","none");
+		 $(".formBox3").css("display","none");
 		 $(".formBox2").css("display","none");
-		 $(".formBox1").css("display","");
 		 $("#a1").addClass("active");
 		 $("#a").removeClass("active");
 		 $("#a2").removeClass("active");
+		 $("#a3").removeClass("active");
 }
 function a(){
 		 $(".formBox").css("display","");
 		 $(".formBox2").css("display","none");
 		 $(".formBox1").css("display","none");
+		 $(".formBox3").css("display","none");
 		 $("#a").addClass("active");
 		 $("#a1").removeClass("active");
 		 $("#a2").removeClass("active");
-		 
+		 $("#a3").removeClass("active");	 
+}
+function a2(){
+	 $(".formBox2").css("display","");
+	 $(".formBox").css("display","none");
+	 $(".formBox1").css("display","none");
+	 $(".formBox3").css("display","none");
+	 $("#a2").addClass("active"); 
+	 $("#a").removeClass("active");
+	 $("#a1").removeClass("active");
+	 $("#a3").removeClass("active");
+	 
+}
+function a3(){
+	 $(".formBox3").css("display","");
+	 $(".formBox2").css("display","none");
+	 $(".formBox").css("display","none");
+	 $(".formBox1").css("display","none");
+	 $("#a3").addClass("active"); 
+	 $("#a").removeClass("active");
+	 $("#a1").removeClass("active");
+	 $("#a2").removeClass("active");
+	 
 }
 
 $(function(){
@@ -44,4 +69,9 @@ $(function(){
 
 	});
 
+});
+
+$(".pagination li").click(function(){
+	$(".pagination li").removeClass("active");
+	$(this).addClass("active");
 });

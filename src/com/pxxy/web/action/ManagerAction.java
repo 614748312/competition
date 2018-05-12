@@ -25,10 +25,19 @@ import com.pxxy.service.ManagerService;
 @Controller("managerAction")
 @Scope("prototype")
 public class ManagerAction extends ActionSupport implements ModelDriven<Manager> {
-	private Manager manager = new Manager();
-	List<Manager> list=null;
+	
 	@Autowired
 	private ManagerService managerService;
+	private Manager manager = new Manager();
+	List<Manager> list=null;
+    
+	public List<Manager> getList() {
+		return list;
+	}
+
+	public void setList(List<Manager> list) {
+		this.list = list;
+	}
 
 	public Manager getManager() {
 		return manager;
@@ -78,9 +87,7 @@ public class ManagerAction extends ActionSupport implements ModelDriven<Manager>
 			e.printStackTrace();
 		}
 		return "success";
-
 	}
-
 	@Override
 	public Manager getModel() {
 		return manager;

@@ -12,6 +12,7 @@ import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.Namespace;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -28,15 +29,48 @@ import net.sf.json.JSONArray;
 @Controller("userinfoAction") 
 @Scope("prototype")
 public class UserinfoAction extends ActionSupport implements ModelDriven<Userinfo> {
-private Userinfo userinfo=new Userinfo();
-@Resource(name = "userinfoService")
+
+@Autowired 
 private UserinfoService userinfoService;
+private Userinfo userinfo=new Userinfo();
 private List<Userinfo> list = null;
 private PageBean<Userinfo> pb;  
 private int currentPage=1; 
 private int pageSize = 9;
 private int tel;
-	public Userinfo getUserinfo() {
+public int getTel() {
+	return tel;
+}
+
+public void setTel(int tel) {
+	this.tel = tel;
+}
+
+public PageBean<Userinfo> getPb() {
+	return pb;
+}
+
+public void setPb(PageBean<Userinfo> pb) {
+	this.pb = pb;
+}
+
+public int getCurrentPage() {
+	return currentPage;
+}
+
+public void setCurrentPage(int currentPage) {
+	this.currentPage = currentPage;
+}
+
+public int getPageSize() {
+	return pageSize;
+}
+
+public void setPageSize(int pageSize) {
+	this.pageSize = pageSize;
+}
+
+public Userinfo getUserinfo() {
 	return userinfo;
 }
 
@@ -133,28 +167,5 @@ public String findAllUserinfoByTel() {
 		return userinfo;
 	}
 
-	public PageBean<Userinfo> getPb() {
-		return pb;
-	}
-
-	public void setPb(PageBean<Userinfo> pb) {
-		this.pb = pb;
-	}
-
-	public int getCurrentPage() {
-		return currentPage;
-	}
-
-	public void setCurrentPage(int currentPage) {
-		this.currentPage = currentPage;
-	}
-
-	public int getPageSize() {
-		return pageSize;
-	}
-
-	public void setPageSize(int pageSize) {
-		this.pageSize = pageSize;
-	}
-
+	
 }
