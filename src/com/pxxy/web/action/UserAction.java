@@ -109,7 +109,6 @@ public class UserAction extends ActionSupport implements ModelDriven<User>,Servl
 			String usernameAjax = request.getParameter("Username");
 			String passwordAjax = request.getParameter("Password");
 			int telAjax=Integer.parseInt(usernameAjax);
-			System.out.println("sss");
 			String password = userService.check(telAjax);
 			System.out.println(password);
 			if (password == null) {
@@ -139,21 +138,30 @@ public class UserAction extends ActionSupport implements ModelDriven<User>,Servl
 		}
 
 	}
-	@Action(value = "reg", results = { @Result(name = "success", location = "/index.jsp"),
-			@Result(name = "error", location = "/error.html") })
-	public String reg() {
+	@Action(value = "reg")
+	public void reg() {
 		try {
-			 User existUser = userService.login(user);
+			response.setContentType("text/html;charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			String yy = request.getParameter("Tel");
+			String mm = request.getParameter("Password");
+			int tel=Integer.parseInt(yy);
+			user.setTel(tel);
+			user.setPassword(mm);
+			User existUser = userService.login(user);
 			if (existUser != null) {
-					return "error";	
+				JSONObject nulljson = new JSONObject();
+				nulljson.put("checkResult", false);
+				out.write(nulljson.toString());
+			}else{
+				 userService.register(user);
+				JSONObject nulljson = new JSONObject();
+				nulljson.put("checkResult", true);
+				out.write(nulljson.toString());
 			}
-			System.out.println(user.getPassword());
-		userService.register(user);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "success";
-
 	}
 
 	@Action(value = "/admin/findAllUser",results={ @Result(name="success", location="/admin/user_query.jsp")})

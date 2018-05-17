@@ -35,7 +35,9 @@
            <th>作品的所属赛事</th>
            <th>作品名</th>
            <th>作者</th>
+           <th>作品类别</th>
            <th>作品获奖情况</th>
+           <th>作品是否展示</th>
            <th colspan="2">操作</th>
       </tr>
       </thead>
@@ -47,7 +49,9 @@
 	        <td><s:property value="#products.match.match_id" /></td>
 	        <td><s:property value="#products.products_name" /></td>
 	        <td><s:property value="#products.products_author" /></td>
+	        <td><s:property value="#products.products_type" /></td>
 	        <td><s:property value="#products.products_prize" /></td>
+	        <td><s:property value="#products.products_value" /></td>
 	        <td><a href='#' onclick="edit(<s:property value="#products.products_id"/>)">编辑</a></td>
 	        <td><a href='#' onclick="del(<s:property value="#products.products_id"/>)">删除</a></td>
 	  </tr>
@@ -55,13 +59,13 @@
 	  </c:if>
 	  <c:if test="${empty pb.list}">
 					<tr>
-					<td colspan="7" align="center">
+					<td colspan="9" align="center">
 					暂无信息
 					</td>
 					</tr>  
 	  </c:if>
 	  	  <tr>
-					<td colspan="7" align="center">
+					<td colspan="9" align="center">
 					<div class="pagination">					
 					第<s:property value="#request.pb.currentPage" />页
 						&nbsp;&nbsp; 共<s:property value="#request.pb.totalPage" /> 页

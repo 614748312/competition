@@ -57,7 +57,7 @@
 	</script>
 	</head>
 	<body>
-		<div class="top">
+					<div class="top">
 			 <div class="logo_icon">
 			 	<div class="icon1"></div>
 			 	<div><a href="index.jsp"><img src="./img/logo.png" height="30" width="300" class="name"></a></div>
@@ -107,18 +107,16 @@
                                 
                             </div>
                         </div>
-                        
-                        
                         <!--注册框内的内容-->
                         <div class="box">
                             <div class="content registerBox" >
                              <div class="form">
                              	<div class="login-header" align="center" > <h1>注册</h1></div>
-                                <form method="post" action="reg" name="myForm" onsubmit="return validateForm()">
+                                <form name="myForm">
                                 <input id="username" class="form-control" type="text" placeholder="账号*请输入6到11位数字*" name="tel">
-                                <input id="password" class="form-control" type="password" placeholder="密码 *以字母开头，长度在6~18之间*" name="password">
+                                <input id="password" class="form-control" type="password" placeholder="密码 *以字母开头，长度在6~10之间*" name="password">
                                 <input id="password_confirmation" class="form-control" type="password" placeholder="重复密码" name="password_confirmation">
-                                <input class="btn btn-default btn-register " type="submit" value="注册">
+                                <button type="button" class="btn btn-default btn-register" onclick="validateForm()">注册</button>  
                                 </form>
                                 </div>
                                 

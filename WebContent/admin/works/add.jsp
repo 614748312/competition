@@ -43,8 +43,24 @@ request.setAttribute("path", basePath);  %>
                      <input class="" type="text" value="" name="products_name"/>
                 </li>
                 <li class="">
-                     <label class="">作者</label>
+                     <label class="">项目成员</label>
                      <input class="" type="text" value="" name="products_author"/>
+                 </li>
+                 <li class="">
+                     <label class="">项目链接</label>
+                     <input class="" type="text" value="" name="products_link"/>
+                 </li>
+                 <li class="">
+                     <label class="">项目指导老师</label>
+                     <input class="" type="text" value="" name="instructor"/>
+                 </li>
+                  <li class="">
+                     <label class="">项目类别</label>
+                    <select name="products_type">
+    				<option value="开发" selected="selected">开发</option>
+    				<option value="图片">图片</option>
+    				<option value="视频">视频</option>
+    			</select>
                  </li>
                  <li class="">
                      <label class="">作品获奖情况</label>

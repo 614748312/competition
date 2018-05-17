@@ -66,18 +66,16 @@
                                 
                             </div>
                         </div>
-                        
-                        
                         <!--注册框内的内容-->
                         <div class="box">
                             <div class="content registerBox" >
                              <div class="form">
                              	<div class="login-header" align="center" > <h1>注册</h1></div>
-                                <form method="post" action="reg" name="myForm" onsubmit="return validateForm()">
+                                <form name="myForm">
                                 <input id="username" class="form-control" type="text" placeholder="账号*请输入6到11位数字*" name="tel">
-                                <input id="password" class="form-control" type="password" placeholder="密码 *以字母开头，长度在6~18之间*" name="password">
+                                <input id="password" class="form-control" type="password" placeholder="密码 *以字母开头，长度在6~10之间*" name="password">
                                 <input id="password_confirmation" class="form-control" type="password" placeholder="重复密码" name="password_confirmation">
-                                <input class="btn btn-default btn-register " type="submit" value="注册">
+                                <button type="button" class="btn btn-default btn-register" onclick="validateForm()">注册</button>  
                                 </form>
                                 </div>
                                 
@@ -107,65 +105,6 @@
         <script type="text/javascript" src="<%=basePath%>/js/jquery.min.js" ></script>
 		<script type="text/javascript" src="<%=basePath%>/js/bootstrap.js" ></script>
 		<script type="text/javascript" src="<%=basePath%>/js/login-register.js" ></script>
-		<script type="text/javascript">
-		function check(userid,passwordid) { 
-		    var username = document.getElementById(userid).value;  
-		    var password = document.getElementById(passwordid).value;  
-		    if (username.length == 0) {  
-		        alert("用户名不能为空");  
-		    } else if (password.length == 0) {  
-		    	alert("密码不能为空");
-		    }else if(username.length != 0 && password.length != 0){  
-		        //ajax(user,password);  
-		        if(!(/(^[1-9]\d*$)/.test(username))){  
-		            document.getElementById("inform").innerHTML="用户名含有非法字符";//有其他字母或者符号型字符的存在  
-		        }else{  
-		           user=parseInt(username);
-		            ajax(user,password);  
-		        }  
-		          
-		    }  
-		}  
-		function createXMLhttp() {  
-		    var xmlhttp;  
-		    if (window.XMLHttpRequest)  
-		    {  
-		        //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码  
-		        xmlhttp=new XMLHttpRequest();  
-		    }  
-		    else  
-		    {  
-		        // IE6, IE5 浏览器执行代码  
-		        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");  
-		    }  
-		    return xmlhttp;  
-		}
-		function ajax(user,password) {  
-			console.log("sss");
-		    var xmlhttp = createXMLhttp();
-		    //发送向指定url发送Ajax请求  
-		    var sendData = "Username="+user+"&Password="+password+"&t="+Math.random();//添加Math.random（）后缀消除缓存  
-		    var url = "log?"+sendData;  
-		    xmlhttp.open("GET",url,true);  
-		    xmlhttp.send();  
-		    //当请求得到响应时，执行的逻辑  
-		    xmlhttp.onreadystatechange=function(){  
-		        if (xmlhttp.readyState==4 && xmlhttp.status==200)  
-		        {  
-		            var logindata = JSON.parse(xmlhttp.responseText);  
-		            if(logindata.checkResult == null){  
-		                alert("该用户不存在");  
-		            }else if (logindata.checkResult == true) {  
-		                window.location.href="index.jsp";  
-		                //alert("done");  
-		            }else if (logindata.checkResult == false){  
-		            	alert("密码输入错误");
-		            }  
-		              
-		        }  
-		    }  
-		   
-		}  
-		</script>
+		
 	</body>
 </html>

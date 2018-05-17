@@ -5,6 +5,7 @@
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 request.setAttribute("path", basePath);  %>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
@@ -49,11 +50,8 @@ request.setAttribute("path", basePath);  %>
         <div class="content" >
 		   <form action="${path }admin/updateProducts" method="post" enctype="multipart/form-data">
 		   	  <ul>
-		   	  <li class="">
-                     <label class="">作品id:</label>
-                     <input class="" type="text" value="${products.products_id}" name="products_id"/>
-                </li>
-		   	  	  <li class="">
+                     <input class="" type="text" style="display:none" value="${products.products_id}" name="products_id"/>
+		   	  	<li class="">
                      <label class="">参与的比赛id:</label>
                      <input class="" type="text" value="${products.match.match_id}" name="match.match_id"/>
                 </li>
@@ -65,17 +63,40 @@ request.setAttribute("path", basePath);  %>
                      <label class="">项目成员</label>
                      <input class="" type="text" value="${products.products_author}" name="products_author"/>
                 </li>
-                 <li class="">
+                <li class="">
+                     <label class="">项目指导老师</label>
+                     <input class="" type="text" value="${products.instructor}" name="instructor"/>
+                </li>
+                <li class="">
                      <label class="">项目获奖情况</label>
                      <input class="" type="text" value="${products.products_prize}" name="products_prize"/>
-                 </li>
+                </li>
+                 <li class="">
+                     <label class="">项目链接</label>
+                     <input class="" type="text" value="${products.products_link}" name="products_prize"/>
+                </li>
+                <li>
+               	<label class="">作品类别:</label>
+               <select name="products_type">
+    				<option value="${products.products_type}" selected="selected">${products.products_type}</option>
+    				<option value="开发">开发</option>
+    				<option value="图片">图片</option>
+    				<option value="视频">视频</option>
+    			</select>
+               	</li>
                   <li>
                	<label class="">图片:</label>
                     <input id="file1" name="file" type="file"  onchange="fileUpload();"/><i></i>
                 </li>
                  <img src="${path }${products.pic_path}" id="pic" width="120px" border="0"/>
                 <li><input id="picPath" name="pic_path" type="hidden" /></li>
-                 <li >
+                 <li><label style="width:80px;">是否发布：</label>
+                 <select name="products_value">
+    				<option value="1" selected="selected">是</option>
+    				<option value="0">否</option>
+    			 </select>
+    			 </li>
+                 <li>
                  	<label class=""></label>
                  	<button name=""  type="submit" class="determine" onclick="vs()" >确认</button>
                  </li>
